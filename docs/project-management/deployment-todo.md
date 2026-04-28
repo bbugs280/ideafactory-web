@@ -45,3 +45,6 @@
 - [ ] Check GitHub Pages build logs for any errors
 - [ ] Add analytics if needed (e.g., Plausible, Google Analytics)
 - [ ] Plan product launches & update Products section when ready
+- [ ] Add pawmind as products
+- [ ] Change logo
+- [ ] Change theme
