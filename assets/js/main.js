@@ -49,4 +49,26 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  // ---- Theme toggle ----
+  var themeToggle = document.getElementById('theme-toggle');
+  var themes = ['teal', 'amber'];
+  var currentThemeIndex = 0;
+
+  // Load saved theme
+  var savedTheme = localStorage.getItem('ideafactory-theme') || 'teal';
+  if (themes.includes(savedTheme)) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    currentThemeIndex = themes.indexOf(savedTheme);
+  }
+
+  // Toggle theme on click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+      var newTheme = themes[currentThemeIndex];
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('ideafactory-theme', newTheme);
+    });
+  }
+
 }());
