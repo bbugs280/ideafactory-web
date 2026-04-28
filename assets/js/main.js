@@ -57,14 +57,14 @@
   var themes = ['teal', 'green', 'charcoal', 'navy', 'amber'];
 
   // Load saved theme
-  var savedTheme = localStorage.getItem('ideafactory-theme') || 'teal';
+  var savedTheme = localStorage.getItem('ideafactory-theme') || 'navy';
   if (themes.includes(savedTheme)) {
     document.documentElement.setAttribute('data-theme', savedTheme);
   }
 
   // Update active indicator
   function updateActiveTheme() {
-    var currentTheme = document.documentElement.getAttribute('data-theme') || 'teal';
+    var currentTheme = document.documentElement.getAttribute('data-theme') || 'navy';
     themeOptions.forEach(function (option) {
       if (option.getAttribute('data-theme') === currentTheme) {
         option.classList.add('active');

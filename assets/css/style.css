@@ -121,10 +121,14 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 .nav.scrolled {
-  background-color: rgba(15, 61, 79, 0.88);
+  background-color: rgba(30, 58, 138, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom-color: var(--border-subtle);
+}
+
+:root[data-theme="teal"] .nav.scrolled {
+  background-color: rgba(15, 61, 79, 0.88);
 }
 
 :root[data-theme="green"] .nav.scrolled {
@@ -306,8 +310,7 @@ strong { color: var(--text); font-weight: 600; }
    Theme Definitions
    ========================================== */
 
-/* Deep Teal & Warm Gold Theme (default) */
-:root,
+/* Deep Teal & Warm Gold Theme */
 :root[data-theme="teal"] {
   --theme-name: "teal";
   --bg:              #0f3d4f;
@@ -361,7 +364,8 @@ strong { color: var(--text); font-weight: 600; }
   --border-subtle:   #2d3e50;
 }
 
-/* Navy & Terracotta Theme */
+/* Navy & Terracotta Theme (default) */
+:root,
 :root[data-theme="navy"] {
   --theme-name: "navy";
   --bg:              #1e3a8a;
@@ -899,12 +903,13 @@ strong { color: var(--text); font-weight: 600; }
   
   .hero-visual {
     order: 0;
-    max-width: 450px;
+    width: min(450px, 80vw);
     margin-inline: auto;
   }
   
   .hero-logo {
-    max-width: 450px;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -914,11 +919,12 @@ strong { color: var(--text); font-weight: 600; }
   }
   
   .hero-visual {
-    max-width: 320px;
+    width: min(360px, 80vw);
   }
   
   .hero-logo {
-    max-width: 320px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .hero-content {
