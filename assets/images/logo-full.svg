@@ -1,0 +1,35 @@
+<svg viewBox="0 0 260 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lightbulb icon -->
+  <g transform="translate(10, 10)">
+    <!-- Lightbulb outline -->
+    <path d="M24 6C16.268 6 10 12.268 10 20c0 5.373 2.99 10.054 7.4 12.524V36a2 2 0 002 2h9.2a2 2 0 002-2v-3.476C35.01 30.054 38 25.373 38 20c0-7.732-6.268-14-14-14z" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <!-- Gears inside bulb -->
+    <g transform="translate(24, 18)">
+      <!-- Large gear -->
+      <circle cx="0" cy="-2" r="5" fill="none" stroke="#f97316" stroke-width="1.5"/>
+      <circle cx="0" cy="-2" r="2.5" fill="#f97316"/>
+      <!-- Gear teeth -->
+      <rect x="-1" y="-8.5" width="2" height="2" fill="#f97316"/>
+      <rect x="-1" y="6.5" width="2" height="2" fill="#f97316"/>
+      <rect x="6.5" y="-1" width="2" height="2" fill="#f97316"/>
+      <rect x="-8.5" y="-1" width="2" height="2" fill="#f97316"/>
+      
+      <!-- Medium gear -->
+      <circle cx="6" cy="3" r="3.5" fill="none" stroke="#f97316" stroke-width="1.5"/>
+      <circle cx="6" cy="3" r="1.5" fill="#f97316"/>
+      
+      <!-- Small gear -->
+      <circle cx="-5" cy="4" r="2.5" fill="none" stroke="#f97316" stroke-width="1.5"/>
+      <circle cx="-5" cy="4" r="1" fill="#f97316"/>
+    </g>
+    
+    <!-- Base lines -->
+    <path d="M20 38h8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 42h8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <path d="M17.5 32.5h13" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Text "IdeaFactory" -->
+  <text x="80" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" font-size="32" font-weight="600" fill="#f5f7f9">Idea<tspan font-weight="700">Factory</tspan></text>
+</svg>
