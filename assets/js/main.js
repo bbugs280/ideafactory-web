@@ -49,26 +49,61 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  // ---- Theme toggle ----
+  // ---- Theme menu ----
   var themeToggle = document.getElementById('theme-toggle');
-  var themes = ['teal', 'amber'];
-  var currentThemeIndex = 0;
+  var themeMenu = document.getElementById('theme-menu');
+  var themeMenuWrapper = document.getElementById('theme-menu-wrapper');
+  var themeOptions = document.querySelectorAll('.theme-option');
+  var themes = ['teal', 'green', 'charcoal', 'navy', 'amber'];
 
   // Load saved theme
   var savedTheme = localStorage.getItem('ideafactory-theme') || 'teal';
   if (themes.includes(savedTheme)) {
     document.documentElement.setAttribute('data-theme', savedTheme);
-    currentThemeIndex = themes.indexOf(savedTheme);
   }
 
-  // Toggle theme on click
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-      var newTheme = themes[currentThemeIndex];
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('ideafactory-theme', newTheme);
+  // Update active indicator
+  function updateActiveTheme() {
+    var currentTheme = document.documentElement.getAttribute('data-theme') || 'teal';
+    themeOptions.forEach(function (option) {
+      if (option.getAttribute('data-theme') === currentTheme) {
+        option.classList.add('active');
+      } else {
+        option.classList.remove('active');
+      }
     });
   }
+  updateActiveTheme();
+
+  // Toggle menu on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = themeMenuWrapper.getAttribute('data-open') === 'true';
+      themeMenuWrapper.setAttribute('data-open', String(!isOpen));
+      themeToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+
+  // Select theme
+  themeOptions.forEach(function (option) {
+    option.addEventListener('click', function (e) {
+      e.preventDefault();
+      var newTheme = this.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('ideafactory-theme', newTheme);
+      themeMenuWrapper.setAttribute('data-open', 'false');
+      themeToggle.setAttribute('aria-expanded', 'false');
+      updateActiveTheme();
+    });
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', function (e) {
+    if (!themeMenuWrapper.contains(e.target)) {
+      themeMenuWrapper.setAttribute('data-open', 'false');
+      themeToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 
 }());

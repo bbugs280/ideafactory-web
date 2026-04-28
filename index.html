@@ -43,9 +43,18 @@
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#products" class="nav-link">Products</a></li>
       </ul>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Switch theme">
-        <span class="theme-toggle-icon" aria-hidden="true">🎨</span>
-      </button>
+      <div class="theme-menu-wrapper" id="theme-menu-wrapper">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Select theme" aria-expanded="false" aria-haspopup="menu" title="Select theme">
+          <span class="theme-toggle-icon" aria-hidden="true">🎨</span>
+        </button>
+        <ul class="theme-menu" id="theme-menu" role="menu">
+          <li role="none"><a href="#" data-theme="teal" role="menuitem" class="theme-option">Deep Teal & Warm Gold</a></li>
+          <li role="none"><a href="#" data-theme="green" role="menuitem" class="theme-option">Forest Green & Copper</a></li>
+          <li role="none"><a href="#" data-theme="charcoal" role="menuitem" class="theme-option">Charcoal & Emerald</a></li>
+          <li role="none"><a href="#" data-theme="navy" role="menuitem" class="theme-option">Navy & Terracotta</a></li>
+          <li role="none"><a href="#" data-theme="amber" role="menuitem" class="theme-option">Dark Amber (Classic)</a></li>
+        </ul>
+      </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
