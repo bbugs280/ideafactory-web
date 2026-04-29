@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PawMind logo</title>
+  <desc id="desc">A stylized paw with a circuit-inspired brain pattern.</desc>
+  <defs>
+    <linearGradient id="pawGradient" x1="24" y1="24" x2="232" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E1D99"/>
+      <stop offset="1" stop-color="#3E8FE6"/>
+    </linearGradient>
+    <linearGradient id="lineGradient" x1="64" y1="128" x2="192" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C7D7FF"/>
+      <stop offset="1" stop-color="#ECF3FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="48" fill="#E7E8EB"/>
+
+  <ellipse cx="62" cy="86" rx="26" ry="36" transform="rotate(-28 62 86)" fill="url(#pawGradient)"/>
+  <ellipse cx="102" cy="54" rx="29" ry="40" transform="rotate(-9 102 54)" fill="url(#pawGradient)"/>
+  <ellipse cx="164" cy="54" rx="29" ry="40" transform="rotate(8 164 54)" fill="url(#pawGradient)"/>
+  <ellipse cx="204" cy="86" rx="26" ry="36" transform="rotate(28 204 86)" fill="url(#pawGradient)"/>
+
+  <path d="M128 112C83 112 48 143 48 182C48 217 82 242 128 242C174 242 208 217 208 182C208 143 173 112 128 112Z" fill="url(#pawGradient)"/>
+
+  <path d="M84 176C95 165 112 161 126 168C142 176 158 173 170 160" stroke="url(#lineGradient)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M92 150C102 139 118 132 136 136C153 140 166 136 176 126" stroke="url(#lineGradient)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M78 198C94 188 114 186 132 194C147 201 165 201 180 191" stroke="url(#lineGradient)" stroke-width="4.5" stroke-linecap="round"/>
+
+  <circle cx="80" cy="174" r="5" fill="#F4F8FF"/>
+  <circle cx="102" cy="154" r="4" fill="#F4F8FF"/>
+  <circle cx="124" cy="168" r="5" fill="#F4F8FF"/>
+  <circle cx="149" cy="174" r="4" fill="#F4F8FF"/>
+  <circle cx="171" cy="160" r="5" fill="#F4F8FF"/>
+  <circle cx="177" cy="127" r="4" fill="#F4F8FF"/>
+  <circle cx="132" cy="194" r="4" fill="#F4F8FF"/>
+  <circle cx="180" cy="191" r="4" fill="#F4F8FF"/>
+</svg>

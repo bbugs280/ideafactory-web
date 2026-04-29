@@ -701,6 +701,22 @@ strong { color: var(--text); font-weight: 600; }
   letter-spacing: 0.08em;
 }
 
+.product-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.product-card-logo {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 .product-card-name {
   font-size: 21px;
   font-weight: 700;
