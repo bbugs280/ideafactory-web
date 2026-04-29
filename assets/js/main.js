@@ -106,4 +106,11 @@
     }
   });
 
+  // ---- Ensure product videos never autoplay ----
+  document.querySelectorAll('.product-card-video').forEach(function (video) {
+    video.autoplay = false;
+    video.pause();
+    video.currentTime = 0;
+  });
+
 }());
