@@ -674,7 +674,7 @@ strong { color: var(--text); font-weight: 600; }
 /* Product cards — used when products exist */
 .products-grid.has-products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
 }
 
@@ -841,6 +841,19 @@ strong { color: var(--text); font-weight: 600; }
 
 @media (max-width: 640px) {
   :root { --section-py: 56px; }
+
+  .products-grid.has-products {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    padding: 24px;
+  }
+
+  .product-card-video {
+    max-height: 60svh;
+    object-fit: contain;
+  }
 
   .nav-links {
     display: none;
