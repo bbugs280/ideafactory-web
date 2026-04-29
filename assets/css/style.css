@@ -731,6 +731,27 @@ strong { color: var(--text); font-weight: 600; }
   flex: 1;
 }
 
+.product-card-media {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+.product-card-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 9 / 16;
+  background: #000;
+}
+
+.product-card-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
 .product-card-link {
   display: inline-flex;
   align-items: center;
