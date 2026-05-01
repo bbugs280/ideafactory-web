@@ -736,6 +736,8 @@ strong { color: var(--text); font-weight: 600; }
   border-radius: 14px;
   overflow: hidden;
   background: #000;
+  max-width: 260px;
+  margin-inline: auto;
 }
 
 .product-card-video {
