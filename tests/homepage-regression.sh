@@ -33,6 +33,7 @@ assert_file_exists "$ROOT_DIR/assets/products/pawmind/test-video2-web.mp4" "Miss
 assert_file_exists "$ROOT_DIR/assets/images/pawmind/pawmind-poster-1.png" "Missing PawMind poster asset: assets/images/pawmind/pawmind-poster-1.png"
 assert_file_exists "$ROOT_DIR/assets/images/pawmind/pawmind-poster-2.png" "Missing PawMind poster asset: assets/images/pawmind/pawmind-poster-2.png"
 assert_file_exists "$ROOT_DIR/assets/images/pawmind/pawmind-poster-3.png" "Missing PawMind poster asset: assets/images/pawmind/pawmind-poster-3.png"
+assert_file_exists "$ROOT_DIR/assets/images/art-of-war-poster.png" "Missing Art Of War poster asset: assets/images/art-of-war-poster.png"
 
 # Markup contract guards
 assert_contains "$INDEX_FILE" '<img src="assets/images/idea-factory-logo.png" alt="" class="hero-logo">' "Hero logo source changed unexpectedly"
@@ -43,6 +44,7 @@ assert_contains "$INDEX_FILE" 'data-video-src="assets/products/pawmind/test-vide
 assert_contains "$INDEX_FILE" 'data-poster-src="assets/images/pawmind/pawmind-poster-1.png"' "PawMind Poster 1 source changed unexpectedly"
 assert_contains "$INDEX_FILE" 'data-poster-src="assets/images/pawmind/pawmind-poster-2.png"' "PawMind Poster 2 source changed unexpectedly"
 assert_contains "$INDEX_FILE" 'data-poster-src="assets/images/pawmind/pawmind-poster-3.png"' "PawMind Poster 3 source changed unexpectedly"
+assert_contains "$INDEX_FILE" '<img class="product-card-poster" src="assets/images/art-of-war-poster.png" alt="Art Of War AI poster">' "Art Of War poster markup changed unexpectedly"
 
 # Prevent accidental fallback to MOV sources in the card tabs
 if grep -Fq 'data-video-src="assets/products/pawmind/tester-video-1.MOV"' "$INDEX_FILE" || \

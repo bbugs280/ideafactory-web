@@ -796,13 +796,18 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 .product-card-poster-tabs {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 56px);
   gap: 10px;
   align-items: center;
-  flex-wrap: wrap;
+  width: max-content;
+  max-width: 100%;
 }
 
 .product-poster-tab {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
   appearance: none;
   border: 1px solid var(--border);
   background: transparent;
@@ -997,7 +1002,14 @@ strong { color: var(--text); font-weight: 600; }
   }
 
   .product-card-poster-tabs {
+    grid-template-columns: repeat(3, 48px);
     gap: 8px;
+  }
+
+  .product-poster-tab {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
   }
 
   .product-poster-tab img {
