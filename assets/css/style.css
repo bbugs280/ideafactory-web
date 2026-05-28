@@ -771,10 +771,10 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 .product-card-qr-image {
-  width: 100%;
-  max-width: 168px;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  display: block;
+  width: 168px;
+  height: 168px;
+  object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--border);
   background: #fff;
@@ -891,7 +891,8 @@ strong { color: var(--text); font-weight: 600; }
   }
 
   .product-card-qr-image {
-    max-width: 136px;
+    width: 136px;
+    height: 136px;
   }
 
   .nav-links {
