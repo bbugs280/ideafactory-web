@@ -740,12 +740,109 @@ strong { color: var(--text); font-weight: 600; }
   margin-inline: auto;
 }
 
+.product-card-media--poster {
+  max-width: 100%;
+  background: transparent;
+}
+
+.product-card-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
 .product-card-video {
   width: 100%;
   height: auto;
   display: block;
   aspect-ratio: 9 / 16;
   background: #000;
+}
+
+.product-card-video-tabs {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-video-tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background var(--t), color var(--t), border-color var(--t);
+}
+
+.product-video-tab:hover {
+  border-color: var(--accent-border);
+  color: var(--text);
+}
+
+.product-video-tab.is-active {
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+  color: var(--accent-light);
+}
+
+.product-card-poster-tabs {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-poster-tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 10px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color var(--t), transform var(--t);
+}
+
+.product-poster-tab:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-1px);
+}
+
+.product-poster-tab.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-border) inset;
+}
+
+.product-poster-tab img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-card-video-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-card-video-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .product-card-meta {
@@ -888,6 +985,24 @@ strong { color: var(--text); font-weight: 600; }
   .product-card-video {
     max-height: 60svh;
     object-fit: contain;
+  }
+
+  .product-card-video-tabs {
+    gap: 6px;
+  }
+
+  .product-video-tab {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .product-card-poster-tabs {
+    gap: 8px;
+  }
+
+  .product-poster-tab img {
+    width: 48px;
+    height: 48px;
   }
 
   .product-card-qr-image {

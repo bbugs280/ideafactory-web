@@ -113,4 +113,95 @@
     video.currentTime = 0;
   });
 
+  // ---- PawMind demo video switcher ----
+  document.querySelectorAll('.product-card').forEach(function (card) {
+    var video = card.querySelector('.product-card-video');
+    var mainPoster = card.querySelector('.product-card-poster');
+    var tabs = card.querySelectorAll('.product-video-tab');
+    var posterTabs = card.querySelectorAll('.product-poster-tab');
+    var posterIntervalId = null;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!video || !tabs.length) {
+      return;
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var nextSrc = tab.getAttribute('data-video-src');
+
+        if (!nextSrc || video.getAttribute('src') === nextSrc) {
+          return;
+        }
+
+        video.pause();
+        video.src = nextSrc;
+        video.load();
+        video.currentTime = 0;
+
+        tabs.forEach(function (candidate) {
+          candidate.classList.toggle('is-active', candidate === tab);
+        });
+      });
+    });
+
+    function applyPosterTab(posterTab) {
+      var nextPoster = posterTab.getAttribute('data-poster-src');
+
+      if (!nextPoster || video.getAttribute('poster') === nextPoster) {
+        return;
+      }
+
+      if (mainPoster) {
+        mainPoster.setAttribute('src', nextPoster);
+      }
+
+      video.pause();
+      video.setAttribute('poster', nextPoster);
+      video.currentTime = 0;
+      video.load();
+
+      posterTabs.forEach(function (candidate) {
+        candidate.classList.toggle('is-active', candidate === posterTab);
+      });
+    }
+
+    posterTabs.forEach(function (posterTab) {
+      posterTab.addEventListener('click', function () {
+        applyPosterTab(posterTab);
+      });
+    });
+
+    function startPosterAutoplay() {
+      if (posterTabs.length < 2 || reduceMotion || posterIntervalId) {
+        return;
+      }
+
+      posterIntervalId = window.setInterval(function () {
+        var activeIndex = 0;
+
+        posterTabs.forEach(function (candidate, index) {
+          if (candidate.classList.contains('is-active')) {
+            activeIndex = index;
+          }
+        });
+
+        var nextIndex = (activeIndex + 1) % posterTabs.length;
+        applyPosterTab(posterTabs[nextIndex]);
+      }, 3500);
+    }
+
+    function stopPosterAutoplay() {
+      if (!posterIntervalId) {
+        return;
+      }
+      window.clearInterval(posterIntervalId);
+      posterIntervalId = null;
+    }
+
+    startPosterAutoplay();
+    card.addEventListener('mouseenter', stopPosterAutoplay);
+    card.addEventListener('mouseleave', startPosterAutoplay);
+  });
+
 }());

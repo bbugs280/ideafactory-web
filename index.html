@@ -15,8 +15,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IdeaFactory">
   <meta name="twitter:description" content="A product studio that only ships what's worth building.">
-  <meta property="og:image" content="https://ideafactory.one/assets/images/idea-factory-logo.png">
-  <meta name="twitter:image" content="https://ideafactory.one/assets/images/idea-factory-logo.png">
+  <meta property="og:image" content="https://ideafactory.one/assets/images/logo-full.svg">
+  <meta name="twitter:image" content="https://ideafactory.one/assets/images/logo-full.svg">
 
   <title>IdeaFactory — A product studio that only ships what's worth building</title>
 
@@ -37,7 +37,7 @@
   <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="#home" class="nav-logo">
-        <img src="assets/images/idea-factory-logo-clear.png" alt="IdeaFactory" class="nav-logo-icon">
+        <img src="assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
         <span class="nav-logo-text">IdeaFactory</span>
       </a>
       <ul class="nav-links" id="nav-links" role="list">
@@ -172,16 +172,54 @@
               <span class="product-card-tagline">iOS App · AI Vision</span>
             </div>
             <h3 class="product-card-name">PawMind</h3>
-            <div class="product-card-media">
-              <video class="product-card-video" controls playsinline preload="none" poster="assets/images/PawMind-icon.jpg">
-                <source src="assets/products/pawmind/PawMind-Video1-web.mp4" type="video/mp4">
-                <track kind="captions" src="assets/products/pawmind/video1.srt" srclang="en" label="English" default>
-                Your browser does not support the video tag.
-              </video>
+            <div class="product-card-media product-card-media--poster">
+              <img class="product-card-poster" src="assets/images/pawmind/pawmind-poster-1.png" alt="PawMind preview poster">
+            </div>
+            <div class="product-card-poster-tabs" role="group" aria-label="Select PawMind poster image">
+              <button
+                type="button"
+                class="product-poster-tab is-active"
+                data-poster-src="assets/images/pawmind/pawmind-poster-1.png"
+                aria-label="Show PawMind poster 1"
+              ><img src="assets/images/pawmind/pawmind-poster-1.png" alt="PawMind poster 1 thumbnail"></button>
+              <button
+                type="button"
+                class="product-poster-tab"
+                data-poster-src="assets/images/pawmind/pawmind-poster-2.png"
+                aria-label="Show PawMind poster 2"
+              ><img src="assets/images/pawmind/pawmind-poster-2.png" alt="PawMind poster 2 thumbnail"></button>
+              <button
+                type="button"
+                class="product-poster-tab"
+                data-poster-src="assets/images/pawmind/pawmind-poster-3.png"
+                aria-label="Show PawMind poster 3"
+              ><img src="assets/images/pawmind/pawmind-poster-3.png" alt="PawMind poster 3 thumbnail"></button>
             </div>
             <p class="product-card-desc">Your puppy is talking to you every second through every head tilt, bark, and late-night zoomie. PawMind uses AI to read your dog's body language and translate what they might be thinking.</p>
             <p class="product-card-desc">Rate each guess and submit your correction. Every correction improves future responses and contributes to a growing dataset of real-world dog communication.</p>
             <p class="product-card-meta">iOS 17+ · Free · No data sold · 2 min setup</p>
+            <div class="product-card-video-section">
+              <p class="product-card-video-label">Video viewer</p>
+              <div class="product-card-media">
+                <video class="product-card-video" controls playsinline preload="none" poster="assets/images/pawmind/pawmind-poster-1.png">
+                  <source src="assets/products/pawmind/tester-video-1-web.mp4" type="video/mp4">
+                  <track kind="captions" src="assets/products/pawmind/video1.srt" srclang="en" label="English" default>
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="product-card-video-tabs" role="group" aria-label="Select PawMind demo video">
+                <button
+                  type="button"
+                  class="product-video-tab is-active"
+                  data-video-src="assets/products/pawmind/tester-video-1-web.mp4"
+                >Video 1</button>
+                <button
+                  type="button"
+                  class="product-video-tab"
+                  data-video-src="assets/products/pawmind/test-video2-web.mp4"
+                >Video 2</button>
+              </div>
+            </div>
             <div class="product-card-qr">
               <picture>
                 <source srcset="assets/images/pawmind-qrcode-preview.svg" type="image/svg+xml">
@@ -242,7 +280,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="#home" class="nav-logo">
-          <img src="assets/images/idea-factory-logo-clear.png" alt="IdeaFactory" class="nav-logo-icon">
+          <img src="assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
           <span class="nav-logo-text">IdeaFactory</span>
         </a>
         <p class="footer-tagline">A product studio that only ships what's worth building.</p>
