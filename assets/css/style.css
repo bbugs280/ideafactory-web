@@ -563,6 +563,18 @@ strong { color: var(--text); font-weight: 600; }
   top: calc(var(--nav-height) + 24px);
 }
 
+.about-bio-figure {
+  margin: 0 0 24px;
+}
+
+.about-bio-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
 .highlight-quote {
   font-size: 18px;
   font-style: italic;
