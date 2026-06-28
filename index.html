@@ -296,7 +296,7 @@
       </div>
     </section>
 
-    <!-- AI Chat Section -->
+    <!-- AI Chat Section — full video hero twin embedded -->
     <section class="section section-dark" id="chat">
       <div class="container">
         <div class="section-header">
@@ -304,18 +304,13 @@
           <h2 class="section-title">Ask us anything.</h2>
           <p class="section-subtitle">Our AI guide knows about our process, products, and how we build. Give it a try.</p>
         </div>
-        <div class="chat-embed-wrapper">
-          <div class="chat-messages" id="if-chat-messages">
-            <div class="chat-msg guide">
-              <span class="chat-label">IDEAFACTORY GUIDE</span>
-              Hi! I'm the IdeaFactory Guide. Ask me about our products (PawMind, Art Of War AI), our scoring process, or how we build tools with AI agents.
-            </div>
-          </div>
-          <div class="chat-input-row">
-            <input type="text" id="if-user-input" placeholder="Ask about IdeaFactory..." aria-label="Chat input">
-            <button id="if-send-btn" onclick="ifSend()">Send</button>
-          </div>
-        </div>
+        <iframe
+          src="https://vincentyeung.ddns.net:8090"
+          class="twin-iframe"
+          title="IdeaFactory AI Guide"
+          loading="lazy"
+          allow="clipboard-write"
+        ></iframe>
       </div>
     </section>
 
