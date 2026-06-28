@@ -205,3 +205,66 @@
   });
 
 }());
+
+// ── IdeaFactory AI Chat (embedded) ────────────────────────────────
+var ifHistory = [];
+var ifChat = document.getElementById('if-chat-messages');
+var ifInput = document.getElementById('if-user-input');
+var ifSendBtn = document.getElementById('if-send-btn');
+var IF_API = 'https://vincentyeung.ddns.net:8090';
+
+function ifAddMsg(text, role) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  var label = role === 'guide' ? 'IDEAFACTORY GUIDE' : 'YOU';
+  el.innerHTML = '<span class="chat-label">' + label + '</span>' + ifEsc(text);
+  ifChat.appendChild(el);
+  ifChat.scrollTop = ifChat.scrollHeight;
+}
+
+function ifEsc(text) {
+  var d = document.createElement('div');
+  d.textContent = text;
+  return d.innerHTML;
+}
+
+function ifSend() {
+  var text = ifInput.value.trim();
+  if (!text) return;
+  ifAddMsg(text, 'user');
+  ifInput.value = '';
+  ifSendBtn.disabled = true;
+
+  var loadEl = document.createElement('div');
+  loadEl.className = 'chat-loading';
+  loadEl.innerHTML = '<span class="chat-label">IDEAFACTORY GUIDE</span>Thinking...';
+  ifChat.appendChild(loadEl);
+  ifChat.scrollTop = ifChat.scrollHeight;
+
+  fetch(IF_API + '/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: text, history: ifHistory, name: '' })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    ifChat.removeChild(loadEl);
+    ifAddMsg(d.reply, 'guide');
+    ifHistory.push({ role: 'user', content: text }, { role: 'assistant', content: d.reply });
+    if (ifHistory.length > 20) ifHistory = ifHistory.slice(-20);
+    ifSendBtn.disabled = false;
+    ifInput.focus();
+  })
+  .catch(function() {
+    ifChat.removeChild(loadEl);
+    ifAddMsg("Sorry, I couldn't connect. Try again in a moment.", 'guide');
+    ifSendBtn.disabled = false;
+    ifInput.focus();
+  });
+}
+
+if (ifInput) {
+  ifInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') ifSend();
+  });
+}

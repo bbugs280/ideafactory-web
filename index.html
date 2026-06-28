@@ -53,6 +53,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#chat" class="nav-link">Ask AI</a></li>
       </ul>
       <div class="theme-menu-wrapper" id="theme-menu-wrapper">
         <button class="theme-toggle" id="theme-toggle" aria-label="Select theme" aria-expanded="false" aria-haspopup="menu" title="Select theme">
@@ -90,6 +91,7 @@
           <div class="hero-actions">
             <a href="#products" class="btn btn-primary">See Our Products</a>
             <a href="#about" class="btn btn-ghost">Our Story <span aria-hidden="true">→</span></a>
+            <a href="#chat" class="btn btn-ghost">💬 Ask Our AI <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -290,6 +292,29 @@
               aria-label="Download and test Art Of War AI on TestFlight"
             >Download & test on TestFlight <span aria-hidden="true">→</span></a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section class="section section-dark" id="chat">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">AI Guide</span>
+          <h2 class="section-title">Ask us anything.</h2>
+          <p class="section-subtitle">Our AI guide knows about our process, products, and how we build. Give it a try.</p>
+        </div>
+        <div class="chat-embed-wrapper">
+          <div class="chat-messages" id="if-chat-messages">
+            <div class="chat-msg guide">
+              <span class="chat-label">IDEAFACTORY GUIDE</span>
+              Hi! I'm the IdeaFactory Guide. Ask me about our products (PawMind, Art Of War AI), our scoring process, or how we build tools with AI agents.
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input type="text" id="if-user-input" placeholder="Ask about IdeaFactory..." aria-label="Chat input">
+            <button id="if-send-btn" onclick="ifSend()">Send</button>
+          </div>
         </div>
       </div>
     </section>
