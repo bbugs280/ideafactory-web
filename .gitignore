@@ -21,3 +21,6 @@ logs/
 .vscode/settings.json
 *.swp
 *.swo
+
+# Local cloned product repositories (private source context)
+products-repo/
