@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainCut — AI Food Tracking</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a1018; color: #e0e0e0; min-height: 100vh; }
+        .hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #0d1520 0%, #162032 50%, #0a1018 100%); }
+        .icon { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,180,120,0.15); }
+        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+        .tagline { font-size: 18px; color: #8899aa; max-width: 480px; margin: 0 auto 32px; line-height: 1.5; }
+        .badge { display: inline-block; background: rgba(0,200,120,0.12); color: #00c878; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .links a { color: #8899aa; text-decoration: none; font-size: 14px; padding: 8px 16px; border-radius: 8px; background: rgba(255,255,255,0.04); transition: all 0.2s; }
+        .links a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+        .features { max-width: 800px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+        .feature { padding: 28px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .feature h3 { font-size: 16px; margin-bottom: 8px; color: #00c878; }
+        .feature p { font-size: 14px; color: #8899aa; line-height: 1.5; }
+        footer { text-align: center; padding: 40px 20px; color: #556; font-size: 13px; }
+        footer a { color: #778; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="../assets/icon-gain-cut.png" alt="GainCut" class="icon" onerror="this.style.display='none'">
+        <h1>GainCut</h1>
+        <p class="tagline">AI-powered nutrition tracking for your training goals. Snap a photo of your meal, get instant macros.</p>
+        <div class="badge">Coming to the App Store</div>
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://github.com/bbugs280/GainCut/issues">Support</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <h3>📸 Snap & Track</h3>
+            <p>Take a photo of any meal. AI identifies the food and estimates macros in seconds.</p>
+        </div>
+        <div class="feature">
+            <h3>🎯 Goal-Based Targets</h3>
+            <p>Choose gain, cut, or maintenance. Calorie targets adapt to your training phase.</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 On-Device First</h3>
+            <p>Your data stays on your device. No accounts, no tracking, no analytics.</p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="../">IdeaFactory.one</a> · Made in Hong Kong 🇭🇰
+    </footer>
+</body>
+</html>
