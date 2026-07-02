@@ -24,3 +24,6 @@ logs/
 
 # Local cloned product repositories (private source context)
 products-repo/
+
+# OpenCode config (contains tokens)
+.opencode.json
