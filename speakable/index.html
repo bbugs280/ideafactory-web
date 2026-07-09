@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakAble — Voice AI Assistant Powered by Hermes</title>
+    <meta name="description" content="SpeakAble is a voice-first AI assistant for iOS. Talk naturally to your Hermes agent — hands-free, private, and self-hosted. No subscriptions, no cloud lock-in.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SpeakAble — Voice AI Assistant">
+    <meta property="og:description" content="Talk to Hermes like Grok. Voice-first iOS client for your AI agent. Self-hosted, $0 cost.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ideafactory.one/speakable">
+    <meta property="og:image" content="https://ideafactory.one/assets/icon-speakable.png">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a0e17; color: #e0e0e0; min-height: 100vh; }
+        .hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #0a0e17 0%, #0f1425 40%, #1a1040 70%, #0a0e17 100%); }
+        .icon { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(79,70,229,0.2); }
+        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; background: linear-gradient(135deg, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tagline { font-size: 18px; color: #8899aa; max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
+        .badge { display: inline-block; background: rgba(99,102,241,0.12); color: #818cf8; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .links a { color: #8899aa; text-decoration: none; font-size: 14px; padding: 10px 20px; border-radius: 8px; background: rgba(255,255,255,0.04); transition: all 0.2s; font-weight: 500; }
+        .links a:hover { background: rgba(99,102,241,0.1); color: #a5b4fc; }
+        .links a.primary { background: rgba(99,102,241,0.2); color: #a5b4fc; }
+        .links a.primary:hover { background: rgba(99,102,241,0.3); }
+        .features { max-width: 860px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .feature { padding: 28px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s; }
+        .feature:hover { border-color: rgba(99,102,241,0.2); }
+        .feature h3 { font-size: 16px; margin-bottom: 8px; color: #a5b4fc; }
+        .feature p { font-size: 14px; color: #8899aa; line-height: 1.5; }
+        .demo-section { max-width: 800px; margin: 0 auto 60px; padding: 0 20px; text-align: center; }
+        .demo-section h2 { font-size: 24px; margin-bottom: 16px; color: #c7d2fe; }
+        .demo-section p { color: #8899aa; line-height: 1.6; max-width: 600px; margin: 0 auto 32px; }
+        .setup-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: left; }
+        .setup-step { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .setup-step .num { font-size: 12px; font-weight: 700; color: #6366f1; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+        .setup-step h4 { font-size: 15px; margin-bottom: 4px; }
+        .setup-step p { font-size: 13px; color: #8899aa; }
+        footer { text-align: center; padding: 40px 20px; color: #556; font-size: 13px; }
+        footer a { color: #778; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="../assets/icon-speakable.png" alt="SpeakAble App Icon" class="icon" onerror="this.style.display='none'">
+        <h1>SpeakAble</h1>
+        <p class="tagline">Voice-first AI assistant for iOS. Talk naturally to your Hermes agent — hands-free, private, and self-hosted. Like Grok, but yours.</p>
+        <div class="badge">Coming to TestFlight</div>
+        <div class="links">
+            <a href="https://github.com/bbugs280/hermes-voice" class="primary">GitHub (MIT)</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <h3>🎙️ Voice-First</h3>
+            <p>Continuous conversation mode — just start talking. SpeakAble listens, your Hermes agent thinks, and you hear the response out loud. Like a phone call with your AI.</p>
+        </div>
+        <div class="feature">
+            <h3>🔄 Grok-Style Barge-In</h3>
+            <p>Interrupt anytime. If SpeakAble is speaking and you want to jump in, just tap the mic — it stops instantly and listens. Natural, like real conversation.</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 Self-Hosted, $0 Cost</h3>
+            <p>Runs against your own Hermes or OpenAI-compatible API. LiveKit server is free (Apache 2.0). No subscriptions, no cloud lock-in. Your agent, your data.</p>
+        </div>
+        <div class="feature">
+            <h3>🌐 Multi-Language</h3>
+            <p>Speak in English, Cantonese, or Mandarin. Apple on-device speech recognition and synthesis — all voice processing stays on your iPhone.</p>
+        </div>
+        <div class="feature">
+            <h3>📝 Transcripts & History</h3>
+            <p>Every conversation is saved with full text transcripts. Switch between sessions, review past discussions, and pick up where you left off.</p>
+        </div>
+        <div class="feature">
+            <h3>📊 Rich Markdown</h3>
+            <p>Hermes can respond with tables, code blocks, headings, and bullet lists — all rendered beautifully in dark mode on your iPhone.</p>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>How It Works</h2>
+        <p>You provide the brain (Hermes or any OpenAI-compatible agent). SpeakAble handles voice I/O on your iPhone. All connected through a free LiveKit server.</p>
+        <div class="setup-steps">
+            <div class="setup-step">
+                <div class="num">Step 1</div>
+                <h4>Install LiveKit Server</h4>
+                <p>One command: <code style="background:rgba(99,102,241,0.1);padding:2px 6px;border-radius:4px;font-size:12px;">brew install livekit</code>. Free, open-source, runs anywhere.</p>
+            </div>
+            <div class="setup-step">
+                <div class="num">Step 2</div>
+                <h4>Run the Bridge</h4>
+                <p>Thin Python proxy connects LiveKit to your Hermes API. 4 dependencies, zero config.</p>
+            </div>
+            <div class="setup-step">
+                <div class="num">Step 3</div>
+                <h4>Connect SpeakAble</h4>
+                <p>Enter your server address once in Settings. SpeakAble auto-derives LiveKit and token endpoints.</p>
+            </div>
+            <div class="setup-step">
+                <div class="num">Step 4</div>
+                <h4>Start Talking</h4>
+                <p>Tap the mic, speak naturally. Your Hermes agent responds out loud. No typing, no screens.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="../">IdeaFactory.one</a> · © 2026 IdeaFactory · Made in Hong Kong 🇭🇰
+    </footer>
+</body>
+</html>

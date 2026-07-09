@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakAble — Privacy Policy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a0e17; color: #e0e0e0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { font-size: 32px; margin-bottom: 8px; }
+        h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px; color: #a5b4fc; }
+        p, li { font-size: 15px; color: #8899aa; line-height: 1.7; margin-bottom: 12px; }
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        .back { margin-bottom: 32px; }
+        .back a { color: #818cf8; text-decoration: none; font-size: 14px; }
+        footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); color: #556; font-size: 13px; text-align: center; }
+        footer a { color: #778; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back"><a href="index.html">← Back to SpeakAble</a></div>
+        <h1>Privacy Policy</h1>
+        <p>Last updated: July 10, 2026</p>
+
+        <h2>Overview</h2>
+        <p>SpeakAble is designed to keep your voice and conversations private. All speech recognition and synthesis happens on your device using Apple's built-in services. Your conversations are sent directly to your own Hermes agent — we don't have servers that see your data.</p>
+
+        <h2>Data We Collect</h2>
+        <p>SpeakAble collects <strong>no personal data</strong>. There is:</p>
+        <ul>
+            <li>No account creation</li>
+            <li>No analytics or tracking</li>
+            <li>No third-party SDKs beyond Apple system frameworks</li>
+            <li>No data sent to IdeaFactory servers</li>
+        </ul>
+
+        <h2>On-Device Processing</h2>
+        <p>All speech recognition (STT) and speech synthesis (TTS) use Apple's on-device SFSpeechRecognizer and AVSpeechSynthesizer. Your voice is processed locally on your iPhone and is not sent to Apple servers.</p>
+
+        <h2>Your Hermes Agent</h2>
+        <p>SpeakAble connects to <strong>your own</strong> Hermes agent or OpenAI-compatible API that you configure. The text of your conversations is sent to the agent endpoint you specify. We do not have access to this data — it's between your iPhone and your server.</p>
+
+        <h2>Data Storage</h2>
+        <p>Conversation transcripts are stored locally on your iPhone using SwiftData. They are not synced to iCloud unless you have iCloud backup enabled for the app. You can delete conversations at any time.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>SpeakAble is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+        <h2>Contact</h2>
+        <p>For privacy questions: <a href="mailto:yeung.vincent@gmail.com" style="color:#818cf8;">yeung.vincent@gmail.com</a></p>
+
+        <footer>
+            <a href="../../">IdeaFactory.one</a> · © 2026 IdeaFactory
+        </footer>
+    </div>
+</body>
+</html>

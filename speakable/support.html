@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakAble — Support</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a0e17; color: #e0e0e0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { font-size: 32px; margin-bottom: 24px; }
+        h2 { font-size: 18px; margin-top: 28px; margin-bottom: 10px; color: #a5b4fc; }
+        p, li { font-size: 15px; color: #8899aa; line-height: 1.7; margin-bottom: 10px; }
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        .back { margin-bottom: 32px; }
+        .back a { color: #818cf8; text-decoration: none; font-size: 14px; }
+        code { background: rgba(99,102,241,0.1); padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #a5b4fc; }
+        footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); color: #556; font-size: 13px; text-align: center; }
+        footer a { color: #778; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back"><a href="index.html">← Back to SpeakAble</a></div>
+        <h1>Support</h1>
+
+        <h2>Getting Started</h2>
+        <p>SpeakAble connects to your own Hermes agent through a LiveKit server. You'll need:</p>
+        <ol style="padding-left:20px;margin-bottom:16px;">
+            <li style="color:#8899aa;font-size:15px;line-height:1.7;margin-bottom:8px;">A running <strong>LiveKit server</strong> (<code>brew install livekit</code>)</li>
+            <li style="color:#8899aa;font-size:15px;line-height:1.7;margin-bottom:8px;">The <strong>bridge agent</strong> (<code>agent_bridge.py</code>) connecting LiveKit to your Hermes API</li>
+            <li style="color:#8899aa;font-size:15px;line-height:1.7;margin-bottom:8px;">Your server address entered in SpeakAble Settings</li>
+        </ol>
+        <p>Full setup instructions are in the <a href="https://github.com/bbugs280/hermes-voice" style="color:#818cf8;">GitHub README</a>.</p>
+
+        <h2>Common Issues</h2>
+
+        <h3>App shows "Offline"</h3>
+        <ul>
+            <li>Make sure your LiveKit server is running</li>
+            <li>Check that the bridge agent is running (<code>launchctl list | grep voice-bridge</code>)</li>
+            <li>Verify the server address in Settings (use <code>http://</code> not <code>ws://</code>)</li>
+            <li>Tap "Reconnect" or restart the app</li>
+        </ul>
+
+        <h3>Voice recognition isn't working</h3>
+        <ul>
+            <li>Grant microphone permission when prompted</li>
+            <li>Ensure the correct language is selected (English, Cantonese, or Mandarin)</li>
+            <li>Download the speech recognition model for your language in Settings → General → Keyboard</li>
+        </ul>
+
+        <h3>TTS voice sounds robotic</h3>
+        <ul>
+            <li>Download a premium voice: Settings → Accessibility → Spoken Content → Voices</li>
+            <li>Premium voices sound dramatically more natural than compact ones</li>
+            <li>Select your preferred voice in SpeakAble's voice picker</li>
+        </ul>
+
+        <h3>"Sorry, couldn't reach SpeakAble"</h3>
+        <ul>
+            <li>Check that your Hermes API server is running</li>
+            <li>Verify the API key in your bridge's <code>.env</code> file</li>
+            <li>Check bridge logs: <code>~/hermes-voice/agent/agent.log</code></li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>For help or feedback: <a href="mailto:yeung.vincent@gmail.com" style="color:#818cf8;">yeung.vincent@gmail.com</a></p>
+        <p>GitHub Issues: <a href="https://github.com/bbugs280/hermes-voice/issues" style="color:#818cf8;">github.com/bbugs280/hermes-voice/issues</a></p>
+
+        <footer>
+            <a href="../../">IdeaFactory.one</a> · © 2026 IdeaFactory
+        </footer>
+    </div>
+</body>
+</html>
