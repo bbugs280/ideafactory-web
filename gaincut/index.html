@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GainCut — AI Food Tracking for Training Goals</title>
-    <meta name="description" content="GainCut is an AI-powered nutrition tracker that helps you reach your training goals. Snap a photo of any meal and get instant macro breakdowns. No accounts, privacy-first, built for iOS.">
+    <title>GainCut — All Gym. No Results? Here's What You're Missing.</title>
+    <meta name="description" content="You train hard. But your diet is a guess. GainCut turns every meal into a macro breakdown with one photo. No scales, no math, no food diaries. Just snap, log, and finally see the results your training deserves.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a1018; color: #e0e0e0; min-height: 100vh; }
         .hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #0d1520 0%, #162032 50%, #0a1018 100%); }
         .icon { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,180,120,0.15); }
         h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-        .tagline { font-size: 18px; color: #8899aa; max-width: 480px; margin: 0 auto 32px; line-height: 1.5; }
+        .hook { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+        .tagline { font-size: 18px; color: #8899aa; max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
+        .appstore-btn { display: inline-block; margin-bottom: 24px; }
+        .appstore-btn img { height: 48px; }
         .badge { display: inline-block; background: rgba(0,200,120,0.12); color: #00c878; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
-        .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
         .links a { color: #8899aa; text-decoration: none; font-size: 14px; padding: 8px 16px; border-radius: 8px; background: rgba(255,255,255,0.04); transition: all 0.2s; }
         .links a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+        .pitch { max-width: 700px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
+        .pitch h2 { font-size: 28px; margin-bottom: 24px; color: #fff; }
+        .pitch p { font-size: 16px; color: #8899aa; line-height: 1.8; margin-bottom: 20px; }
         .features { max-width: 800px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
         .feature { padding: 28px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
         .feature h3 { font-size: 16px; margin-bottom: 8px; color: #00c878; }
@@ -28,40 +34,48 @@
     <div class="hero">
         <img src="../assets/icon-gain-cut.png" alt="GainCut App Icon" class="icon" onerror="this.style.display='none'">
         <h1>GainCut</h1>
-        <p class="tagline">AI-powered nutrition tracking built for your training goals. Snap a photo of your meal, get instant macros, and stay on track — gain, cut, or maintain.</p>
-        <div class="badge">🚀 Now Available on the App Store</div>
+        <p class="hook">All gym. No results? Here's what you're missing.</p>
+        <p class="tagline">You train hard. You show up. But your diet is a guess. GainCut turns every meal into a macro breakdown with one photo. No scales, no math, no food diaries.</p>
+        <a class="appstore-btn" href="https://apps.apple.com/hk/app/gaincut/id6785259813" style="display:inline-block;background:#fff;color:#0a1018;padding:12px 28px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:24px;">📲 Download on the App Store</a>
         <div class="links">
-            <a href="https://apps.apple.com/hk/app/gaincut/id6785259813" style="color:#00c878;font-weight:600;">📲 Download on the App Store</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="support.html">Support</a>
             <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
         </div>
     </div>
 
+    <div class="pitch">
+        <h2>You're doing the hard part. It's the easy part that's holding you back.</h2>
+        <p>You spend hours under a barbell. You track every set, every rep, every progressive overload. But when it comes to food, you're estimating. And that's why you're stuck.</p>
+        <p>The truth: training breaks muscle down. Food builds it back. If you don't know your macros, you don't know if you're gaining or losing. You're working hard and <em>hoping</em> hard — and hoping isn't a strategy.</p>
+        <p>GainCut changes that. Snap a photo. AI identifies every food, calculates your macros, and logs against a target that knows whether you're bulking or cutting. It reads your weight from Apple Health. It adjusts your surplus automatically. It gives you what every lifter needs: <strong>certainty</strong>.</p>
+        <p>The difference between "working out" and transforming isn't more sets. It's knowing exactly what's on your fork.</p>
+    </div>
+
     <div class="features">
         <div class="feature">
-            <h3>📸 Snap &amp; Track</h3>
-            <p>Take a photo of any meal. AI identifies the food, estimates portion sizes, and calculates macros in seconds. Review and edit before logging.</p>
+            <h3>📸 One Photo, Full Breakdown</h3>
+            <p>Snap any meal. AI identifies every food and calculates your macros in seconds. No scales, no typing, no excuses.</p>
         </div>
         <div class="feature">
-            <h3>🎯 Phase-Based Targets</h3>
-            <p>Choose Gain, Cut, or Maintenance. Calorie and macro targets adapt to your training phase using your body stats and activity level.</p>
+            <h3>🎯 Phase-Aware Targets</h3>
+            <p>Surplus for gains. Deficit for cuts. Your targets adapt to your training phase — and update as your body changes.</p>
         </div>
         <div class="feature">
-            <h3>🔒 Private by Design</h3>
-            <p>All meal data stays on your device. No accounts, no tracking, no analytics. Food photos are processed and discarded — never stored.</p>
-        </div>
-        <div class="feature">
-            <h3>📊 Progress Dashboard</h3>
-            <p>Track daily remaining calories, protein, carbs, and fat at a glance. View your meal history with full macro breakdowns.</p>
+            <h3>💪 Protein Prioritized</h3>
+            <p>Higher protein during cuts to preserve muscle. Optimized for gains during bulks. Built for people who lift.</p>
         </div>
         <div class="feature">
             <h3>⌚ Apple Health Sync</h3>
-            <p>Automatically pull your weight, body fat, and activity data from Apple Health for personalized daily targets.</p>
+            <p>Reads your weight, body fat, and activity automatically. Your targets are always based on real data, not guesses.</p>
         </div>
         <div class="feature">
-            <h3>💪 Built for Lifters</h3>
-            <p>Protein targets scale with your training phase — higher during cuts to preserve muscle, optimized for gains during bulks.</p>
+            <h3>📊 Dashboard That Makes Sense</h3>
+            <p>Calories remaining. Macros at a glance. Meal history with full breakdowns. No clutter, no confusion.</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 Private by Design</h3>
+            <p>No accounts. No tracking. Food photos are processed transiently — never stored. Your data stays on your device.</p>
         </div>
     </div>
 
