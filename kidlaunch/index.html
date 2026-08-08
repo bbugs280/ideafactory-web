@@ -612,6 +612,17 @@
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
+  // Click-anywhere-to-play for death animation videos
+  document.querySelectorAll('.death-video').forEach(video => {
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().catch(() => {}); // ignore autoplay policy errors
+      } else {
+        video.pause();
+      }
+    });
+  });
+
   // Scroll-triggered reveal animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
