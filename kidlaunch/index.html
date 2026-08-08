@@ -294,6 +294,30 @@
       .section { padding-block: 56px; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* Video player */
+    .death-video-wrap {
+      margin: 28px 0; text-align: center;
+    }
+    .death-video {
+      width: 100%; max-width: 500px; border-radius: var(--radius-lg);
+      border: 2px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      background: #0a0a16; cursor: pointer; transition: border-color 0.3s;
+    }
+    .death-video:hover { border-color: var(--accent-border); }
+    .video-hint {
+      font-size: 12px; color: var(--text-muted); margin-top: 8px; font-weight: 500;
+    }
+    .video-hint strong { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -340,7 +364,7 @@
   <!-- Hero gameplay screenshot -->
   <section class="hero-img-section">
     <div class="container">
-      <div class="section-header-row">
+      <div class="section-header-row reveal">
         <img src="images/lumina.png" alt="Lumina, the Discover guardian" class="guardian-portrait" loading="eager">
         <span class="section-label">🌟 The Game Itself</span>
       </div>
@@ -451,7 +475,7 @@
       <h2 class="section-title">What Wayne actually contributed</h2>
       <p class="section-sub">Every major system in KidLaunch has Wayne's design thinking behind it. Here's what a 12-year-old tester actually built.</p>
 
-      <div class="feature-grid">
+      <div class="feature-grid reveal">
         <div class="feature-card">
           <span class="feature-icon">⚔️</span>
           <h4>Boss HP Bar</h4>
@@ -504,7 +528,7 @@
         <span class="section-label">📊 By The Numbers</span>
       </div>
       <h2 class="section-title">One summer. One kid. One product.</h2>
-      <div class="metrics-grid">
+      <div class="metrics-grid reveal">
         <div class="metric-card"><div class="metric-num" style="color:var(--accent)">40</div><div class="metric-label">git commits</div></div>
         <div class="metric-card"><div class="metric-num" style="color:var(--cyan)">42</div><div class="metric-label">days from first commit</div></div>
         <div class="metric-card"><div class="metric-num" style="color:var(--accent)">15+</div><div class="metric-label">Wayne test rounds</div></div>
@@ -536,6 +560,13 @@
 
         <p>His score that round: <strong>8.5/10</strong> — the highest ever awarded. He was right the whole time.</p>
 
+        <div class="death-video-wrap reveal">
+          <video class="death-video" preload="none" muted playsinline poster="images/kip.png" title="Kip the fox — death animation (Wayne helped debug this)">
+            <source src="images/kip-death.mp4" type="video/mp4">
+          </video>
+          <p class="video-hint">🦊 <strong>Click to play</strong> — Kip's death animation. Wayne discovered the dual-video bug that made this flicker.</p>
+        </div>
+
         <div class="pull-quote">
           "When Wayne says something is broken, check the database before you argue. He's earned that."
           <div class="pull-quote-footer">— Lesson learned, August 6, 2026</div>
@@ -552,7 +583,15 @@
       </div>
       <h2 class="cta-title">Build your own project.</h2>
       <p class="cta-sub">KidLaunch guides kids through real projects — from idea to report — with AI coaches, boss battles, and guardian allies.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+
+      <div class="death-video-wrap reveal reveal-delay-1">
+        <video class="death-video" preload="none" muted playsinline poster="images/chronicla.png" title="Guardian — final boss death animation">
+          <source src="images/guardian-death.mp4" type="video/mp4">
+        </video>
+        <p class="video-hint">🐉 <strong>Click to play</strong> — The final boss falls. Your project is complete.</p>
+      </div>
+
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px">
         <a href="https://kidlaunch.beets3d.com" class="btn btn-primary" target="_blank" rel="noopener">
           🚀 Try KidLaunch →
         </a>
@@ -572,6 +611,17 @@
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+  // Scroll-triggered reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
