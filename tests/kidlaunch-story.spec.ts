@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE = 'http://localhost:8765';
+const BASE = 'http://localhost:8766';
 
 test.describe('KidLaunch Story Page', () => {
 
@@ -33,9 +33,13 @@ test.describe('KidLaunch Story Page', () => {
   test('all images load without broken src', async ({ page }) => {
     await page.goto(`${BASE}/kidlaunch/`);
     
+    // Wait for visible images to load (skip lazy-loaded below-fold images)
+    await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
+    await page.waitForTimeout(2000);
+    
     const images = page.locator('img');
     const count = await images.count();
-    
+    expect(count).toBeGreaterThanOrEqual(8);
     for (let i = 0; i < count; i++) {
       const img = images.nth(i);
       const src = await img.getAttribute('src');

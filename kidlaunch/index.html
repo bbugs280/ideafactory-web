@@ -164,6 +164,22 @@
     }
     @media (max-width: 640px) { .char-accent { width: 56px; height: 56px; float: none; display: block; margin: 16px auto; } }
 
+    /* Section guardian portrait */
+    .guardian-portrait {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 2px solid var(--border); background: var(--bg-card);
+      object-fit: contain; padding: 5px;
+      vertical-align: middle; margin-right: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .section-header-row {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+    }
+    @media (max-width: 640px) {
+      .section-header-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .guardian-portrait { width: 48px; height: 48px; }
+    }
+
     /* Screenshots */
     .screenshot {
       border-radius: 12px; border: 1px solid var(--border);
@@ -324,6 +340,10 @@
   <!-- Hero gameplay screenshot -->
   <section class="hero-img-section">
     <div class="container">
+      <div class="section-header-row">
+        <img src="images/lumina.png" alt="Lumina, the Discover guardian" class="guardian-portrait" loading="eager">
+        <span class="section-label">🌟 The Game Itself</span>
+      </div>
       <img src="images/gameplay-plan.png" alt="KidLaunch gameplay — the Plan phase with boss HP bar, seal checklist, guardian Tektos, and AI coach Kip" loading="lazy">
       <p class="screenshot-caption">The Plan phase — boss HP bar, seals, energy, guardian Tektos, and AI coach Kip</p>
     </div>
@@ -335,7 +355,7 @@
       <span class="section-label">🦊 How It Started</span>
       <h2 class="section-title">"What if instead of playing games, you built one?"</h2>
       <div class="prose">
-        <img src="images/kip.png" alt="Kip the fox, KidLaunch mascot" class="char-accent" loading="lazy">
+        <img src="images/kip.png" alt="Kip the fox, KidLaunch mascot" class="char-accent" loading="eager">
         <p>Summer 2026. Wayne is 12. While other kids are deep into Roblox and Minecraft, his dad asks him a question that changes everything.</p>
         <p>The answer became <strong>KidLaunch</strong> — a web app that turns project-based learning into an RPG adventure. Each real-world project has 6 phases: 🌟 Discover → 🦊 Research → 🦉 Plan → 🔨 Execute → 💎 Reflect → 🐉 Report. Each phase has a guardian boss. Pass the gate, defeat the boss, move on.</p>
         <p>It started on June 29, 2026 with a blank Next.js canvas — literally the default <code>create-next-app</code> template. Six weeks later, it's at <strong>v0.7.0</strong> with 40 commits, 17 regression tests, 6 guardian bosses with death animations, and a production deployment on a real server.</p>
@@ -362,9 +382,12 @@
   <!-- Wayne's Journey -->
   <section class="section" id="wayne">
     <div class="container">
-      <span class="section-label">🧭 Wayne's Journey</span>
+      <div class="section-header-row">
+        <img src="images/scriba.png" alt="Scriba, the Research guardian" class="guardian-portrait" loading="eager">
+        <span class="section-label">🧭 Wayne's Journey</span>
+      </div>
       <h2 class="section-title">From "this is boring" to architecture proposals</h2>
-      <p class="section-sub">Wayne tested KidLaunch 15+ rounds across 10 versions in one month. His feedback evolved from frustration to strategy.</p>
+      <p class="section-sub">Wayne tested KidLaunch 15+ rounds across 10 versions in one month.</p>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -421,7 +444,10 @@
   <!-- What Wayne Built -->
   <section class="section section-warm" id="built">
     <div class="container">
-      <span class="section-label">🦉 His Fingerprints</span>
+      <div class="section-header-row">
+        <img src="images/tektos.png" alt="Tektos, the Plan guardian" class="guardian-portrait" loading="eager">
+        <span class="section-label">🦉 His Fingerprints</span>
+      </div>
       <h2 class="section-title">What Wayne actually contributed</h2>
       <p class="section-sub">Every major system in KidLaunch has Wayne's design thinking behind it. Here's what a 12-year-old tester actually built.</p>
 
@@ -473,7 +499,10 @@
   <!-- By The Numbers -->
   <section class="section section-dark" id="numbers">
     <div class="container">
-      <span class="section-label">📊 By The Numbers</span>
+      <div class="section-header-row">
+        <img src="images/forge.png" alt="Forge, the Execute guardian" class="guardian-portrait" loading="eager">
+        <span class="section-label">📊 By The Numbers</span>
+      </div>
       <h2 class="section-title">One summer. One kid. One product.</h2>
       <div class="metrics-grid">
         <div class="metric-card"><div class="metric-num" style="color:var(--accent)">40</div><div class="metric-label">git commits</div></div>
@@ -491,7 +520,10 @@
   <!-- The Crisis -->
   <section class="section section-glow" id="crisis">
     <div class="container">
-      <span class="section-label">🏆 His Finest Moment</span>
+      <div class="section-header-row">
+        <img src="images/prisma.png" alt="Prisma, the Reflect guardian" class="guardian-portrait" loading="eager">
+        <span class="section-label">🏆 His Finest Moment</span>
+      </div>
       <h2 class="section-title">The 0% Score Crisis</h2>
       <div class="prose">
         <p>For <strong>three consecutive rounds</strong> — August 4, 5, and 6 — Wayne reported that his project scores were always zero.</p>
@@ -515,6 +547,9 @@
   <!-- CTA -->
   <section class="cta" id="cta">
     <div class="container">
+      <div style="margin-bottom:16px">
+        <img src="images/chronicla.png" alt="Chronicla, the Report guardian" class="guardian-portrait" loading="eager" style="width:72px;height:72px">
+      </div>
       <h2 class="cta-title">Build your own project.</h2>
       <p class="cta-sub">KidLaunch guides kids through real projects — from idea to report — with AI coaches, boss battles, and guardian allies.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
