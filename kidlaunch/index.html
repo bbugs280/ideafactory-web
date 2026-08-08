@@ -442,8 +442,6 @@
       .feature-grid { grid-template-columns: 1fr; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .section { padding-block: 60px; }
-      .screenshot { border-radius: 12px; border: 1px solid var(--border); max-width: 100%; }
-      .screenshot-row { display: grid; grid-template-columns: 1fr; gap: 16px; }
     }
 
     /* Screenshots */
@@ -459,6 +457,9 @@
       grid-template-columns: 1fr 1fr;
       gap: 20px;
       margin: 32px 0;
+    }
+    @media (max-width: 640px) {
+      .screenshot-row { grid-template-columns: 1fr; gap: 16px; }
     }
     .screenshot-caption {
       font-size: 12px;
@@ -512,8 +513,7 @@
     <!-- Hero -->
     <section class="hero" id="top">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-container-wrap">
-        <img src="images/gameplay-plan.png" alt="KidLaunch gameplay — Plan phase with boss HP bar, seal checklist sidebar, and AI coach chat" class="hero-img-float" loading="lazy">
+      <div class="container">
         <div class="hero-content">
           <div class="hero-badge">Origin Story</div>
           <h1 class="hero-title">Instead of playing games<br>all summer, he built one.</h1>
@@ -537,6 +537,14 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Hero Visual -->
+    <section class="section-dark" style="padding-block:48px;text-align:center">
+      <div class="container">
+        <img src="images/gameplay-plan.png" alt="KidLaunch gameplay — Plan phase with boss HP bar, seal checklist, guardian Tektos, and AI coach Kip" class="img-full" loading="lazy">
+        <p class="screenshot-caption">The Plan phase — boss HP bar (28/28), seal checklist, energy bar, guardian Tektos the Owl Architect, and AI coach Kip</p>
       </div>
     </section>
 
@@ -641,9 +649,6 @@
         <span class="section-label">His Fingerprints</span>
         <h2 class="section-title">What Wayne actually contributed</h2>
         <p class="section-sub">Every major system in KidLaunch has Wayne's design thinking behind it.</p>
-
-        <img src="images/gameplay-plan.png" alt="Full gameplay screen — Plan phase with boss HP bar at 28/28, seal checklist showing 4 seals, guardian Tektos the Owl Architect, and AI coach Kip chat" class="img-full" loading="lazy" style="margin-bottom:32px">
-        <p class="screenshot-caption" style="margin-top:-20px;margin-bottom:36px">The Plan phase — boss HP (28/28), seal checklist (0/3), energy bar, guardian Tektos, and AI coach Kip. All designed with Wayne's feedback.</p>
 
         <div class="feature-grid">
           <div class="feature-card">
