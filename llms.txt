@@ -1,0 +1,8 @@
+# IdeaFactory
+
+> IdeaFactory is a product studio that only ships what's worth building. Every product is rigorously evaluated before it's built and continuously monitored after it ships. Founded and run by Vincent Yeung.
+
+- [IdeaFactory — Home](https://ideafactory.one/): The product studio — process, products, and philosophy.
+- [KidLaunch](https://ideafactory.one/kidlaunch/): The story of a 12-year-old who built an RPG where kids complete real-world projects instead of grinding games.
+- [GainCut](https://ideafactory.one/gaincut/): AI-powered nutrition tracking for lifters. Snap a photo, get your macro breakdown with phase-aware bulk/cut/maintain targets.
+- [SpeakAble](https://ideafactory.one/speakable/): Voice-first AI assistant for iOS. Talk naturally to your self-hosted Hermes agent — hands-free, private, and open source.
