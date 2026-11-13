@@ -92,6 +92,21 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Smooth scrolling is for ANCHOR JUMPS, which should glide.
+   It must NOT apply to the programmatic reset on page load.
+
+   BUG, 2026-11-13: `scroll-behavior: smooth` is inherited by every scroll
+   on the document, including `window.scrollTo(0, 0)` in main.js. On load
+   that meant the reset ANIMATED, so the page visibly slid upward from a
+   restored offset — reported as "it bounces". Measured: scrollTo(0, 2500)
+   sampled 300ms later had only travelled to 849px.
+
+   Scope it to :focus-within — i.e. a keyboard or click target being
+   scrolled into view — and leave everything else instant. */
+html:not(:focus-within) {
+  scroll-behavior: auto;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: var(--bg);

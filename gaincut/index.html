@@ -1,147 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GainCut — All Gym. No Results? Here's What You're Missing.</title>
-    <meta name="description" content="You train hard. But your diet is a guess. GainCut turns every meal into a macro breakdown with one photo. No scales, no math, no food diaries. Just snap, log, and finally see the results your training deserves.">
-    <link rel="canonical" href="https://ideafactory.one/gaincut/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="GainCut — All Gym. No Results? Here's What You're Missing.">
-    <meta property="og:description" content="Snap a photo, get your macros. AI-powered nutrition tracking for lifters — no scales, no math, no food diaries.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ideafactory.one/gaincut/">
-    <meta property="og:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+  <title>GainCut — AI Calorie Tracker &amp; Macro Logging for Lifters | Hong Kong</title>
+  <meta name="description" content="Snap a photo, get your macros. GainCut is an AI calorie tracker built for lifters — it reads real Hong Kong food and logs protein, carbs and fat in seconds. 30 free AI scans a month.">
+  <link rel="canonical" href="https://ideafactory.one/gaincut/">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GainCut — All Gym. No Results?">
-    <meta name="twitter:description" content="Snap a photo, get your macros. AI nutrition tracking for lifters.">
-    <meta name="twitter:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="GainCut — Photo in. Macros out.">
+  <meta property="og:description" content="AI calorie tracking for lifters. Snap your plate, get the macro breakdown, train against a real target. 30 free AI scans a month.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ideafactory.one/gaincut/">
+  <meta property="og:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="IdeaFactory">
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF4NXDNN3P"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QF4NXDNN3P');
-    </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GainCut — Photo in. Macros out.">
+  <meta name="twitter:description" content="AI calorie tracking for lifters. Snap your plate, get the breakdown. 30 free AI scans a month.">
+  <meta name="twitter:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
 
-    <!-- Schema.org - SoftwareApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "GainCut",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "iOS",
-      "description": "AI-powered nutrition tracking for lifters. Snap a photo and get instant macro breakdowns with phase-aware targets (bulk/cut/maintain).",
-      "url": "https://ideafactory.one/gaincut",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/product-pages.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF4NXDNN3P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QF4NXDNN3P');
+  </script>
+
+  <!-- Schema.org — SoftwareApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GainCut",
+    "applicationCategory": "HealthApplication",
+    "applicationSubCategory": "Nutrition Tracking",
+    "operatingSystem": "iOS 17.0 or later",
+    "description": "AI calorie tracker and macro logger for lifters. Photograph a meal and GainCut estimates protein, carbohydrates and fat, logs it against a phase-aware calorie target, and folds HRV, resting heart rate and sleep into a daily recovery score.",
+    "url": "https://ideafactory.one/gaincut/",
+    "downloadUrl": "https://apps.apple.com/hk/app/gaincut/id6785259813",
+    "softwareVersion": "1.4",
+    "author": {
+      "@type": "Organization",
+      "name": "IdeaFactory",
+      "url": "https://ideafactory.one"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier includes 30 AI food scans per month."
+    },
+    "featureList": [
+      "AI food photo scanning",
+      "Phase-aware calorie targets for bulk, cut and maintain",
+      "Protein, carbohydrate and fat tracking",
+      "Recovery score from HRV, resting heart rate and sleep",
+      "Hong Kong food recognition"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is GainCut free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. GainCut includes 30 free AI food scans every month. A Pro tier raises that limit; the free tier does not expire."
+        }
       },
-      "author": {
-        "@type": "Organization",
-        "name": "IdeaFactory",
-        "url": "https://ideafactory.one"
+      {
+        "@type": "Question",
+        "name": "Does GainCut work with Hong Kong food?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GainCut was built in Hong Kong and recognises local dishes including char siu, rice, noodles, dim sum and Hong Kong milk tea, rather than failing on them the way Western-first food databases do."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an Apple Watch or Whoop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The recovery score reads HRV, resting heart rate and sleep from Apple Health, so any device that writes to Apple Health works."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Health and nutrition data stays on your device and in Apple Health. Photos are sent to the food-recognition service to identify the meal and are not used to build an advertising profile. See the privacy policy for the full detail."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What iOS version does GainCut need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GainCut requires iOS 17.0 or later and runs on iPhone."
+        }
       }
-    }
-    </script>
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #0a1018; color: #e0e0e0; min-height: 100vh; }
-        .hero { text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #0d1520 0%, #162032 50%, #0a1018 100%); }
-        .icon { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(0,180,120,0.15); }
-        h1 { font-size: 48px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-        .hook { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 16px; }
-        .tagline { font-size: 18px; color: #8899aa; max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
-        .appstore-btn { display: inline-block; margin-bottom: 24px; }
-        .appstore-btn img { height: 48px; }
-        .badge { display: inline-block; background: rgba(0,200,120,0.12); color: #00c878; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
-        .update-banner { max-width: 640px; margin: 24px auto 0; padding: 16px 22px; background: rgba(255,180,60,0.10); border: 1px solid rgba(255,180,60,0.35); border-radius: 12px; color: #ffc861; font-size: 15px; line-height: 1.55; text-align: center; }
-        .update-banner strong { color: #ffd27a; }
-        .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
-        .links a { color: #8899aa; text-decoration: none; font-size: 14px; padding: 8px 16px; border-radius: 8px; background: rgba(255,255,255,0.04); transition: all 0.2s; }
-        .links a:hover { background: rgba(255,255,255,0.08); color: #fff; }
-        .pitch { max-width: 700px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
-        .pitch h2 { font-size: 28px; margin-bottom: 24px; color: #fff; }
-        .pitch p { font-size: 16px; color: #8899aa; line-height: 1.8; margin-bottom: 20px; }
-        .features { max-width: 800px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-        .feature { padding: 28px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-        .feature h3 { font-size: 16px; margin-bottom: 8px; color: #00c878; }
-        .feature p { font-size: 14px; color: #8899aa; line-height: 1.5; }
-        footer { text-align: center; padding: 40px 20px; color: #556; font-size: 13px; }
-        footer a { color: #778; text-decoration: none; }
-    </style>
+    ]
+  }
+  </script>
 </head>
 <body>
-    <div class="hero">
-        <img src="../assets/icon-gain-cut.png" alt="GainCut App Icon" class="icon" onerror="this.style.display='none'">
-        <h1>GainCut</h1>
-        <p class="hook">All gym. No results? Here's what you're missing.</p>
-        <p class="tagline">You train hard. You show up. But your diet is a guess. GainCut turns every meal into a macro breakdown with one photo. No scales, no math, no food diaries.</p>
-        <a class="appstore-btn" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&utm_medium=referral&utm_campaign=gaincut-page" style="display:inline-block;background:#fff;color:#0a1018;padding:12px 28px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:24px;">📲 Download on the App Store</a>
-        <div class="update-banner">
-            <strong>New in 1.4:</strong> a <strong>Recovery score</strong> built from your HRV, resting heart rate, and sleep — one number that tells you whether today's a lift day or a rest day. Plus a clearer <strong>7-Day Balance</strong> that separates on-plan from your true surplus or deficit against your measured burn.
-        </div>
-        <div class="links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="support.html">Support</a>
-            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
-        </div>
-    </div>
 
-    <div class="pitch">
-        <h2>You're doing the hard part. It's the easy part that's holding you back.</h2>
-        <p>You spend hours under a barbell. You track every set, every rep, every progressive overload. But when it comes to food, you're estimating. And that's why you're stuck.</p>
-        <p>The truth: training breaks muscle down. Food builds it back. If you don't know your macros, you don't know if you're gaining or losing. You're working hard and <em>hoping</em> hard — and hoping isn't a strategy.</p>
-        <p>GainCut changes that. Snap a photo. AI identifies every food, calculates your macros, and logs against a target that knows whether you're bulking or cutting. It reads your weight from Apple Health. It adjusts your surplus automatically. It gives you what every lifter needs: <strong>certainty</strong>.</p>
-        <p>The difference between "working out" and transforming isn't more sets. It's knowing exactly what's on your fork.</p>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="../assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
+        <span class="nav-logo-text">IdeaFactory</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#how" class="nav-link">How it works</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a class="btn btn-primary nav-cta" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-nav" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="nav">Get the app</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <div class="features">
-        <div class="feature">
-            <h3>📸 One Photo, Full Breakdown</h3>
-            <p>Snap any meal. AI identifies every food and calculates your macros in seconds. No scales, no typing, no excuses.</p>
+  <main>
+
+    <!-- ============================
+         1. HERO
+         ============================ -->
+    <section class="hero hero--product" id="top">
+      <div class="container-wide hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Built in Hong Kong · iOS
+          </div>
+          <!-- Hero mark, 2026-11-13 (rebuilt).
+               Reproduces the real GainCut app icon as inline SVG so it can
+               animate on load. Colours and geometry were MEASURED off
+               assets/images/GainCut-icon.jpg, not eyeballed — two vision
+               passes disagreed with each other, so pixels won:
+
+                 background  white corners, dark slate tile inside
+                 fork        green  #00a848
+                 dumbbell    orange #f06000
+                 layering    FORK IN FRONT — proven by the orange having a
+                             clean gap exactly at the centre where the fork
+                             crosses it
+                 diagonals   fork \\ (upper-left to lower-right, ~50deg)
+                             dumbbell / (upper-right to lower-left)
+                 fork        3 tines, ~28% of length, U-shaped junction,
+                             rounded handle tip, white outline
+                 dumbbell    bar + stacked rectangular plates each end
+
+               Draw order matters: dumbbell first, fork second, so the fork
+               occludes it the way the original does.
+
+               Every path carries pathLength="1" so one CSS value drives the
+               draw regardless of the shape's real length. -->
+          <!-- Hero mark: the REAL app icon, 1024px master from the Xcode
+               asset catalogue (icon-1024.png). An inline SVG rebuild of the
+               fork-and-dumbbell was tried first and abandoned 2026-11-13 —
+               it could be colour-matched to within 1% and bbox-matched to
+               the source, but it still read as weak next to the hand-drawn
+               original. At 1024px there is no reason to redraw what already
+               exists. Bump `width` here to make it larger; the master
+               downscales cleanly and stays sharp on retina. -->
+          <img class="gc-mark"
+               src="/assets/images/gaincut/gaincut-icon-320.png"
+               srcset="/assets/images/gaincut/gaincut-icon-320.png 1x,
+                       /assets/images/gaincut/gaincut-icon-1024.png 2x"
+               alt="GainCut app icon — a green fork crossed with an orange dumbbell"
+               width="132" height="132" fetchpriority="high" decoding="async">
+          <h1 class="hero-title">Photo in.<br>Macros out.</h1>
+          <p class="hero-subtitle">
+            GainCut is an AI calorie tracker for people who actually train.
+            Photograph your plate and it works out the protein, carbs and fat —
+            then logs it against a target that matches your phase.
+          </p>
+          <div class="hero-actions">
+            <a class="store-badge" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-hero" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="hero">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.2 1.79-3.26 1.87-3.31-1.02-1.49-2.61-1.7-3.17-1.72-1.35-.14-2.63.79-3.32.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.59 1.1 8.75.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.17-2.4 1.19-2.46-.03-.01-2.29-.88-2.31-3.47zM14.88 6.03c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.04 1.68-.91 2.67.97.08 1.96-.49 2.55-1.22z"/></svg>
+              <span>App Store<small>Download on the</small></span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+          </div>
+          <p class="hero-note">
+            30 free AI scans every month · No card required · iOS 17+
+          </p>
         </div>
-        <div class="feature">
-            <h3>🎯 Phase-Aware Targets</h3>
-            <p>Surplus for gains. Deficit for cuts. Your targets adapt to your training phase — and update as your body changes.</p>
+
+        <div class="hero-visual">
+          <!-- Hero shot choice, 2026-11-13.
+               The DASHBOARD was the first pick and it was wrong: it is a
+               dense, clinical screen with four competing data points, and it
+               reads as an internal tool rather than a hero. Measured
+               judgement: "bland and utilitarian, more appropriate for an app
+               store listing than a homepage hero."
+               Snap & Log leads instead — one idea, the core action, huge
+               whitespace. The dashboard sits behind it, dimmed, for depth. -->
+          <div class="phone phone--back">
+            <div class="phone-screen">
+              <img src="../assets/images/gaincut/shots/dashboard.png" alt="" width="1206" height="2622" loading="lazy">
+            </div>
+          </div>
+          <div class="phone phone--front phone--static">
+            <div class="phone-screen">
+              <img src="../assets/images/gaincut/shots/snap.jpg" alt="GainCut Snap and Log screen — photograph a meal and it is identified automatically" width="1206" height="2622" loading="eager">
+            </div>
+          </div>
         </div>
-        <div class="feature">
-            <h3>💪 Protein Prioritized</h3>
-            <p>Higher protein during cuts to preserve muscle. Optimized for gains during bulks. Built for people who lift.</p>
+      </div>
+    </section>
+
+    <!-- ============================
+         2. STAT ROW — proof it is real
+         ============================ -->
+    <section class="section section-tight">
+      <div class="container">
+        <div class="stat-row reveal">
+          <div class="stat-cell">
+            <div class="stat-value">30<span class="unit">/mo</span></div>
+            <div class="stat-label">
+              Free AI scans
+              <small>Every month, on the free tier</small>
+            </div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">3 <span class="unit">macros</span></div>
+            <div class="stat-label">
+              Protein, carbs, fat
+              <small>Not just one number</small>
+            </div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">1 <span class="unit">photo</span></div>
+            <div class="stat-label">
+              To log a meal
+              <small>No scales, no searching, no diary</small>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-            <h3>⌚ Apple Health Sync</h3>
-            <p>Reads your weight, body fat, and activity automatically. Your targets are always based on real data, not guesses.</p>
+      </div>
+    </section>
+
+    <!-- ============================
+         3. THE ENEMY
+         ============================ -->
+    <section class="section section-dark" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The problem</span>
+          <h2 class="h2">You are exact in the gym<br>and guessing in the kitchen.</h2>
+          <p class="lead">
+            You track your lifts to the kilo and your sets to the rep. Then you
+            eat without knowing whether you hit 120&nbsp;g of protein or 60. That
+            is not a discipline problem. It is a measurement problem — and no
+            amount of willpower fixes a number you never measured.
+          </p>
         </div>
-        <div class="feature">
-            <h3>❤️ Recovery Score</h3>
-            <p>HRV, resting heart rate, and sleep folded into one daily readiness number — green to lift, red to rest.</p>
+        <div class="feature-block reveal">
+          <div class="feature-block-text">
+            <h3>Most trackers fail on the food you actually eat.</h3>
+            <p>
+              Western-first food databases have never seen char siu, a bowl of
+              wonton noodles or a plate of dim sum. So you either guess, or you
+              search for twenty minutes and give up by Thursday.
+            </p>
+            <p>
+              GainCut was built in Hong Kong. It reads the plate in front of you
+              instead of asking you to pick from a list that does not contain it.
+            </p>
+            <ul class="feature-list">
+              <li>Recognises local dishes, not just barcoded imports</li>
+              <li>Portion sizes from the photo, not from a scale</li>
+              <li>One entry per meal — under ten seconds</li>
+            </ul>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../assets/images/gaincut/shots/meals.jpg" alt="Today's meals in GainCut — two coffees with milk, Hong Kong milk tea, green curry with chicken and rice, and matcha soft serve" width="1206" height="1073" loading="lazy">
+              <figcaption>
+                <strong>Today's Meals</strong>
+                Hong Kong milk tea, green curry and rice, matcha soft serve — all logged by photo.
+              </figcaption>
+            </figure>
+          </div>
         </div>
-        <div class="feature">
-            <h3>📈 7-Day Balance</h3>
-            <p>On-plan vs true surplus or deficit against your measured burn. See whether you're actually hitting your target, not just guessing.</p>
+      </div>
+    </section>
+
+    <!-- ============================
+         4. HOW IT WORKS — mechanism
+         ============================ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2 class="h2">Three steps. Roughly ten seconds.</h2>
+          <p class="lead">
+            The point of a food tracker is that you keep using it. Every step
+            here exists to remove a reason to stop.
+          </p>
         </div>
-        <div class="feature">
-            <h3>📊 Dashboard That Makes Sense</h3>
-            <p>Calories remaining. Macros at a glance. Meal history with full breakdowns. No clutter, no confusion.</p>
+
+        <div class="mech reveal">
+          <div class="mech-step">
+            <h3>Snap the plate</h3>
+            <p>
+              Open the camera and photograph your meal. No barcode, no search
+              box, no typing a brand name.
+            </p>
+          </div>
+          <div class="mech-step">
+            <h3>It reads the food</h3>
+            <p>
+              The model identifies the dish and estimates the portion, then
+              breaks it into protein, carbohydrate and fat.
+            </p>
+          </div>
+          <div class="mech-step">
+            <h3>It logs against your target</h3>
+            <p>
+              The meal counts against a calorie budget built from your measured
+              burn and your current phase — bulk, cut or maintain.
+            </p>
+          </div>
         </div>
-        <div class="feature">
-            <h3>🔒 Private by Design</h3>
-            <p>No accounts. No tracking. Food photos are processed transiently — never stored. Your data stays on your device.</p>
+
+        <div class="feature-block reveal" style="margin-top: 96px;">
+          <div class="feature-block-text">
+            <h3>Your target is arithmetic, not a guess.</h3>
+            <p>
+              GainCut starts from your basal metabolic rate, adds the calories
+              your activity actually burns, and then applies your phase. A
+              surplus for a bulk. A deficit for a cut. Nothing for maintenance.
+            </p>
+            <p>
+              Every target is shown with its working, so you can see exactly
+              where the number came from — and challenge it if you disagree.
+            </p>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../assets/images/gaincut/shots/target-math.jpg" alt="GainCut target calculation showing basal metabolic rate plus active calories equals total daily energy expenditure, plus a surplus allowance" width="1206" height="937" loading="lazy">
+              <figcaption>
+                <strong>The target, shown with its working</strong>
+                Basal rate plus active burn plus phase surplus — no black box.
+              </figcaption>
+            </figure>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         5. FEATURES
+         ============================ -->
+    <section class="section section-dark" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Features</span>
+          <h2 class="h2">What it tracks, and why each one matters.</h2>
+        </div>
+
+        <!-- Macros -->
+        <div class="feature-block reveal">
+          <div class="feature-block-text">
+            <h3>Macros with a reason attached.</h3>
+            <p>
+              Calories alone cannot tell you whether you are losing fat or
+              muscle. GainCut splits every meal into the three macros and labels
+              what each one is for.
+            </p>
+            <ul class="feature-list">
+              <li><strong>Protein</strong> — muscle retained and built</li>
+              <li><strong>Carbs</strong> — training energy</li>
+              <li><strong>Fat</strong> — hormone regulation</li>
+            </ul>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../assets/images/gaincut/shots/macros.jpg" alt="GainCut macro tracking showing protein 59 of 122 grams, carbs 162 of 201 grams and fat 56 of 89 grams" width="1206" height="569" loading="lazy">
+              <figcaption>
+                <strong>Macros</strong>
+                Each bar shows what is left today, not just what you ate.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Recovery -->
+        <div class="feature-block feature-block--flip reveal">
+          <div class="feature-block-text">
+            <h3>A surplus only builds muscle if you recover.</h3>
+            <p>
+              Eat more while you sleep six hours and much of that surplus is
+              stored as fat. GainCut folds your heart-rate variability, resting
+              heart rate and sleep into one readiness signal, so you know
+              whether today is a lift day or a rest day.
+            </p>
+            <p>
+              It reads from Apple Health, so any device that writes there works.
+              No extra hardware, no second subscription.
+            </p>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../assets/images/gaincut/shots/recovery.jpg" alt="GainCut Recovery screen showing HRV below average, resting heart rate at baseline and 6.7 hours of sleep, with advice to recover first" width="1206" height="1551" loading="lazy">
+              <figcaption>
+                <strong>Recovery</strong>
+                HRV, resting heart rate and sleep against your own seven-day baseline.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- 7-Day Balance -->
+        <div class="feature-block reveal">
+          <div class="feature-block-text">
+            <h3>One day tells you nothing. Seven tells you the truth.</h3>
+            <p>
+              A single bad Tuesday feels like failure and means nothing. GainCut
+              shows the rolling seven-day balance across every day, so you can
+              see whether the week actually went the way you intended.
+            </p>
+            <p>
+              You can read it two ways: against your plan, and against
+              maintenance. On plan or off, you get the real number rather than a
+              reassuring one.
+            </p>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../assets/images/gaincut/shots/balance.jpg" alt="GainCut 7-Day Balance showing daily calorie deltas across a week with plan and maintenance views" width="1206" height="1297" loading="lazy">
+              <figcaption>
+                <strong>7-Day Balance</strong>
+                On plan or off, you see the real number — against your plan and against maintenance.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Snap & log -->
+        <div class="feature-block feature-block--flip reveal">
+          <div class="feature-block-text">
+            <h3>Snap, log, move on.</h3>
+            <p>
+              The whole interaction is one photo and one confirmation. If the
+              model reads the portion wrong, you correct it — you always get the
+              final say before anything is saved.
+            </p>
+            <p>
+              Your scan allowance is shown up front, so there is no surprise
+              paywall in the middle of a meal.
+            </p>
+          </div>
+          <div class="feature-block-media">
+            <figure class="phone-pair">
+              <div class="phone phone--static">
+                <div class="phone-screen">
+                  <img src="../assets/images/gaincut/shots/snap.jpg" alt="GainCut snap and log screen with camera capture and monthly AI scan allowance" width="1206" height="2622" loading="lazy">
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         6. WHAT IT DOES NOT DO — honesty block
+         ============================ -->
+    <section class="section" id="limits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Straight answers</span>
+          <h2 class="h2">What GainCut does not do.</h2>
+          <p class="lead">
+            An estimate from a photograph is an estimate. Here is the boundary,
+            stated plainly, so you know what you are buying.
+          </p>
+        </div>
+        <div class="reveal">
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <th>Photo scans are estimates</th>
+                <td>Portion size from a photo carries an error margin. GainCut is built to be close enough to act on, not to replace a laboratory scale.</td>
+              </tr>
+              <tr>
+                <th>You correct it, not the model</th>
+                <td>Every result can be edited before it is saved. The app never silently overwrites your judgement.</td>
+              </tr>
+              <tr>
+                <th>No calorie is a measurement of you</th>
+                <td>Targets derive from formulas and your logged activity. They are a starting point to adjust from, not a medical prescription.</td>
+              </tr>
+              <tr>
+                <th>iPhone only, iOS 17 or later</th>
+                <td>There is no Android build. The recovery score needs Apple Health data to be useful.</td>
+              </tr>
+              <tr>
+                <th>Not a medical device</th>
+                <td>GainCut does not diagnose, treat or manage any condition. If you have a clinical need, speak to a professional.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         7. PRICING
+         ============================ -->
+    <section class="section section-dark" id="pricing">
+      <div class="container">
+        <div class="section-head reveal" style="text-align: center; margin-inline: auto;">
+          <span class="eyebrow">Pricing</span>
+          <h2 class="h2">Free is genuinely usable.</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Thirty AI scans a month is roughly one meal a day. If that is all you
+            need, you never have to pay.
+          </p>
+        </div>
+
+        <div class="price-grid reveal">
+          <div class="price-card">
+            <div class="price-name">Free</div>
+            <div class="price-amount">Free</div>
+            <p class="price-note">No card, no trial expiry</p>
+            <ul class="price-list">
+              <li>30 AI food scans per month</li>
+              <li>Full macro breakdown</li>
+              <li>Phase-aware calorie targets</li>
+              <li>Recovery score from Apple Health</li>
+              <li>7-Day Balance</li>
+            </ul>
+          </div>
+
+          <div class="price-card price-card--featured">
+            <div class="price-name">Pro</div>
+            <div class="price-amount">
+              US$1.99<span class="price-period">/month</span>
+            </div>
+            <p class="price-note">
+              Or US$14.99/year — save up to 45%. 3-day free trial on the yearly plan.
+              App Store shows the price in your local currency.
+            </p>
+            <ul class="price-list">
+              <li>Unlimited AI food scans</li>
+              <li>Everything in the free tier</li>
+              <li>Priority on new features</li>
+              <li>Cancel any time in iOS Settings</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="hero-note" style="text-align: center; margin-top: 28px;">
+          Payment is handled by Apple. Cancel any time from your App Store subscription settings.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================
+         8. FAQ
+         ============================ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="h2">Questions worth asking.</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details class="faq-item">
+            <summary>Is GainCut free?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. The free tier includes <strong>30 AI food scans every month</strong>
+                and does not expire. Pro removes the monthly scan limit:
+                <strong>US$1.99/month or US$14.99/year</strong> (save up to 45%), with a
+                3-day free trial on the yearly plan. The App Store charges in your
+                local currency.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does it work with Hong Kong food?</summary>
+            <div class="faq-answer">
+              <p>
+                It was built here, so it reads local dishes — char siu, rice,
+                noodles, dim sum, Hong Kong milk tea — instead of failing on
+                them the way Western-first databases do.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need an Apple Watch or a Whoop?</summary>
+            <div class="faq-answer">
+              <p>
+                No. The recovery score reads HRV, resting heart rate and sleep
+                from Apple Health. Any device that writes to Apple Health works,
+                including a phone alone for some metrics.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What happens if the AI gets my meal wrong?</summary>
+            <div class="faq-answer">
+              <p>
+                You edit it before it saves. Every scan result is presented for
+                confirmation, so a wrong read costs you one correction rather
+                than a day of bad data. Nothing is saved without your say-so.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is my health data private?</summary>
+            <div class="faq-answer">
+              <p>
+                Nutrition and health data stays on your device and in Apple
+                Health. Meal photos are sent to the food-recognition service to
+                identify the dish; they are not used to build an advertising
+                profile and are not sold.
+              </p>
+              <p>
+                Full detail is in the <a href="privacy.html">privacy policy</a>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which devices does it run on?</summary>
+            <div class="faq-answer">
+              <p>
+                iPhone, iOS 17.0 or later. There is no Android version.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Who builds GainCut?</summary>
+            <div class="faq-answer">
+              <p>
+                IdeaFactory — a father-and-son product studio in Hong Kong. It is
+                an app built by people who train, for people who train. Support
+                is at <a href="mailto:support@ideafactory.one">support@ideafactory.one</a>,
+                or see the <a href="support.html">support page</a>.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         9. FINAL CTA
+         ============================ -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="h2">Stop guessing the kitchen.</h2>
+        <p class="lead">
+          Thirty free scans a month. One photo per meal. Find out what you have
+          actually been eating.
+        </p>
+        <div class="hero-actions" style="justify-content: center;">
+          <a class="store-badge" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-footer" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="footer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.2 1.79-3.26 1.87-3.31-1.02-1.49-2.61-1.7-3.17-1.72-1.35-.14-2.63.79-3.32.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.59 1.1 8.75.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.17-2.4 1.19-2.46-.03-.01-2.29-.88-2.31-3.47zM14.88 6.03c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.04 1.68-.91 2.67.97.08 1.96-.49 2.55-1.22z"/></svg>
+            <span>App Store<small>Download on the</small></span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="/">More from IdeaFactory</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-sell -->
+    <section class="section section-tight">
+      <div class="container">
+        <div class="cross-sell reveal">
+          <div>
+            <h3 style="font-size: var(--fs-h3); font-weight: 650; letter-spacing: -0.02em; margin-bottom: 8px;">Also from the studio</h3>
+            <p style="font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.6;">PawMind reads dog body language. SpeakAble rebuilds speech with AI. KidLaunch tracks what your kids actually learn.</p>
+          </div>
+          <a class="btn btn-ghost" href="/#products">See all apps</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="/" class="nav-logo">
+          <img src="../assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
+          <span class="nav-logo-text">IdeaFactory</span>
+        </a>
+        <p class="footer-tagline">A father-and-son product studio. AI-powered operations.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#products">Products</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:support@ideafactory.one">Contact</a>
+      </nav>
     </div>
+    <div class="container footer-bottom">
+      <p>Made in Hong Kong 🇭🇰 · © <span id="current-year">2026</span> IdeaFactory · GainCut is not a medical device.</p>
+    </div>
+  </footer>
 
-    <footer>
-        <a href="../">IdeaFactory.one</a> · © 2026 IdeaFactory · Made in Hong Kong 🇭🇰
-    </footer>
+  <script src="../assets/js/main.js"></script>
+  <!-- icon-tilt.js retired 2026-11-13: it drove the static PNG icon that the
+       animated SVG mark replaced. Left on disk for other product pages. -->
 </body>
 </html>

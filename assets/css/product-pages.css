@@ -1,0 +1,721 @@
+/* ==========================================
+   IdeaFactory — Product page components
+   ==========================================
+   Built 2026-11-13 for /gaincut/. These are shared product-page
+   primitives (hero-lite, stat row, mechanism steps, shot cards, spec
+   table, pricing, FAQ) so PawMind / Speakable / KidLaunch can inherit
+   them later instead of each inventing its own layout.
+
+   ⚠️ SCREENSHOT PLACEMENT RULE — read before adding an image.
+   Only TWO of the GainCut screenshots are true full-screen phone
+   aspect (1206x2622 = 0.46): dashboard.png and snap.jpg. The rest are
+   CROPS of one card:
+
+     macros.jpg    1206x569  aspect 2.12   MACROS card strip
+     meals.jpg     1206x1073 aspect 1.12   Today's Meals list
+     balance.jpg   1206x1297 aspect 0.93   7-Day Balance card
+     recovery.jpg  1206x1551 aspect 0.78   Recovery card
+
+   Putting a crop inside .phone letterboxes it into a thin strip with
+   dead space — this exact defect was measured on the homepage with
+   target-math.jpg (0.460 frame vs 1.287 source, ~65% empty). Crops go
+   in .shot-card, with a caption, at their natural aspect.
+   ========================================== */
+
+/* ---- Compact hero for product pages ----
+   Shorter than the homepage hero (100svh): a product page must show
+   the product and get out of the way, not hold a full viewport. */
+.hero--product {
+  min-height: auto;
+  padding-top: calc(var(--nav-height) + 56px);
+  padding-bottom: 72px;
+}
+.hero--product .hero-title { font-size: clamp(2.5rem, 5vw, 3.75rem); }
+.hero--product .hero-subtitle { margin-bottom: 30px; }
+
+/* App icon inline with the page title.
+   Was 76px — too small to read the fork/dumbbell mark at a glance on a
+   phone. Now 108px (squircle radius ~0.2227 x size, matching iOS). The
+   source asset is 1024x1024, so this is still downscaling.
+
+   NOTE 2026-11-13: the /gaincut/ hero uses its own .gc-mark class (the real
+   1024px app icon, sized larger). This class is kept because other product
+   pages still use a static PNG icon. Do NOT put both classes on one
+   element — the hero would render two marks. */
+.product-hero-icon {
+  width: 108px;
+  height: 108px;
+  border-radius: 24px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  margin-bottom: 26px;
+  object-fit: cover;
+}
+
+/* ==========================================
+   GainCut hero mark — the real app icon
+   ==========================================
+   This is the actual 1024px master from the Xcode asset catalogue, NOT a
+   redrawn copy. An inline SVG rebuild (fork + dumbbell in shapes) was built
+   and measured to within 1% colour area and an exact bounding box against
+   the source — and was still abandoned, because next to the hand-drawn
+   original it read as weak. Redrawing a finished icon is not worth it.
+
+   Sizing: 132px, up from the 108px the old PNG used. The master is 1024px,
+   so this is still a 7.7x downscale and stays sharp on any retina display.
+   If Vincent asks for "bigger", raise these two numbers — nothing else
+   needs to change, there is no vector geometry to rescale.
+
+   The squircle radius is 0.2227 x size, which is the iOS icon ratio, so the
+   mask matches what the App Store shows. `object-fit: contain` keeps the
+   square master from ever being cropped if the box is made non-square. */
+.gc-mark {
+  display: block;
+  width: 132px;
+  height: 132px;
+  border-radius: 29px;
+  margin-bottom: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.62));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gc-mark:hover {
+  transform: translateY(-3px);
+}
+
+/* Reduced motion: no lift on hover. The icon itself is a static image, so
+   there is nothing else to suppress. */
+@media (prefers-reduced-motion: reduce) {
+  .gc-mark,
+  .gc-mark:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Mobile: slightly smaller so the headline still fits above the fold on a
+   390px viewport. */
+@media (max-width: 640px) {
+  .gc-mark {
+    width: 112px;
+    height: 112px;
+    border-radius: 25px;
+    margin-bottom: 22px;
+  }
+}
+
+/* Small line under the CTA explaining the free tier without shouting */
+.hero-note {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 18px;
+  line-height: 1.6;
+}
+
+/* ---- Stat row: three numbers that prove the product is real ---- */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 64px;
+}
+.stat-cell {
+  background: var(--bg);
+  padding: 32px 28px;
+  transition: background var(--t);
+}
+.stat-cell:hover { background: var(--bg-card); }
+.stat-value {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.05;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-value .unit {
+  font-size: 0.55em;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+.stat-label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.stat-label small {
+  display: block;
+  color: var(--text-faint);
+  font-size: var(--fs-xs);
+  margin-top: 6px;
+}
+
+/* ---- Mechanism: numbered horizontal steps ---- */
+.mech {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  counter-reset: mech;
+}
+.mech-step {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: border-color var(--t), transform var(--t);
+}
+.mech-step:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+.mech-step::before {
+  counter-increment: mech;
+  content: counter(mech, decimal-leading-zero);
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.mech-step h3 {
+  font-size: var(--fs-h3);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.mech-step p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ---- Feature block: alternating text + crop screenshot ----
+   Crops sit in .shot-card at natural aspect. Never in .phone. */
+.feature-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 96px;
+}
+.feature-block:last-child { margin-bottom: 0; }
+.feature-block--flip .feature-block-media { order: -1; }
+
+.feature-block h3 {
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.feature-block p {
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.feature-block p:last-child { margin-bottom: 0; }
+
+.feature-list {
+  list-style: none;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.feature-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* Screenshot card for CROPPED screenshots */
+.shot-card {
+  margin: 0;
+  background: linear-gradient(155deg, var(--bg-subtle), var(--bg-dark));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color var(--t);
+}
+.shot-card:hover { border-color: var(--border-strong); }
+.shot-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-md);
+  background: #fff;
+}
+.shot-card figcaption {
+  margin-top: 18px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: center;
+}
+.shot-card figcaption strong {
+  display: block;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Phone frame for TRUE full-screen screenshots only.
+   Two-up placement for a deliberate side-by-side. */
+.phone-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.phone-pair .phone { width: 232px; }
+.phone-pair .phone--static { transform: none; }
+.phone-pair .phone--static:hover { transform: translateY(-6px); }
+
+/* ---- Spec / honesty table ---- */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.spec-table th,
+.spec-table td {
+  padding: 16px 22px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+.spec-table tr:last-child th,
+.spec-table tr:last-child td { border-bottom: none; }
+.spec-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  width: 34%;
+  background: var(--bg-dark);
+}
+.spec-table td { color: var(--text-secondary); line-height: 1.6; }
+.spec-table tr:hover td { background: var(--bg-card); }
+
+/* ---- Pricing ---- */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.price-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--t), transform var(--t);
+}
+.price-card:hover { transform: translateY(-3px); }
+.price-card--featured {
+  border-color: var(--accent-border);
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(245,158,11,0.08), transparent 70%),
+    var(--bg-card);
+}
+.price-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+.price-amount {
+  font-size: clamp(1.875rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.price-amount small {
+  font-size: 0.4em;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0;
+}
+.price-note {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.price-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-subtle);
+}
+.price-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.price-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Price period suffix, e.g. "/month". Sits after the amount at a smaller
+   size so the number stays the focal point. */
+.price-period {
+  font-size: 0.42em;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  margin-left: 2px;
+}
+
+/* ---- FAQ ---- */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.faq-item { background: var(--bg); }
+.faq-item summary {
+  padding: 22px 26px;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: background var(--t), color var(--t);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform var(--t);
+  line-height: 1;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { background: var(--bg-card); }
+.faq-item[open] summary { background: var(--bg-card); color: var(--text); }
+.faq-answer {
+  padding: 0 26px 24px;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 72ch;
+}
+.faq-answer p { margin-bottom: 12px; }
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---- Cross-sell: was this page useful, see the rest ---- */
+.cross-sell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+}
+
+/* ---- Product page responsive ---- */
+@media (max-width: 1024px) {
+  .feature-block { grid-template-columns: 1fr; gap: 36px; margin-bottom: 72px; }
+  .feature-block--flip .feature-block-media { order: 0; }
+  .mech { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero--product { padding-top: calc(var(--nav-height) + 32px); }
+  /* The hero mark is a fixed square SVG that scales with its own paths —
+     it needs no mobile size override. Removing the old 88px rule also
+     removes the trap where a narrow viewport silently shrank the mark. */
+  .price-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 28px 24px; }
+  .shot-card { padding: 18px; }
+  .phone-pair .phone { width: 200px; }
+  .spec-table th { width: 42%; }
+  .spec-table th, .spec-table td { padding: 14px 16px; font-size: var(--fs-xs); }
+  .cross-sell { padding: 26px 24px; }
+  .stat-cell { padding: 24px 22px; }
+}
+
+/* ==========================================
+   HERO — entrance motion (v3, 2026-11-13)
+   ==========================================
+   History, so this is not re-litigated:
+   - v1 was a single static phone. Felt plain.
+   - v2 added a floating "scan" demo card over the hero. Rejected: it read
+     as clutter overlapping the product shot.
+   - v3 (this) keeps the hero to ONE product shot and puts the life into
+     entrance motion and a slow ambient glow. Nothing floats over the
+     screenshot. Nothing loops in the reader's face.
+
+   Rule: motion carries arrival and depth. It never adds objects to the
+   composition, and it is a no-op under prefers-reduced-motion.
+   ========================================== */
+
+.hero--product .hero-visual {
+  position: relative;
+  min-height: 560px;
+}
+
+/* ---- Ambient glow behind the product ---- */
+.hero--product .hero-visual::before {
+  content: '';
+  position: absolute;
+  width: 82%;
+  height: 74%;
+  left: 9%;
+  top: 12%;
+  background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.17), transparent 66%);
+  filter: blur(30px);
+  z-index: 0;
+  animation: glow-breathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.5;  transform: scale(0.95); }
+  50%      { opacity: 1;    transform: scale(1.06); }
+}
+
+/* ---- Text: sequential rise ---- */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero--product .hero-content > * {
+  animation: hero-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero--product .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero--product .hero-content > *:nth-child(2) { animation-delay: 0.12s; }
+.hero--product .hero-content > *:nth-child(3) { animation-delay: 0.19s; }
+.hero--product .hero-content > *:nth-child(4) { animation-delay: 0.28s; }
+.hero--product .hero-content > *:nth-child(5) { animation-delay: 0.36s; }
+.hero--product .hero-content > *:nth-child(6) { animation-delay: 0.44s; }
+
+/* App icon lands with a small overshoot */
+@keyframes icon-pop {
+  0%   { opacity: 0; transform: scale(0.72) rotate(-7deg); }
+  62%  { opacity: 1; transform: scale(1.05) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+  /* Retired 2026-11-13: the hero icon is now the animated .gc-mark, which
+     draws itself and has no pop-in. Kept for other product pages. */
+
+/* ---- Phone: rises into place, then settles ---- */
+@keyframes phone-rise {
+  from { opacity: 0; transform: translateY(46px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero--product .phone--front {
+  animation: phone-rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+/* Long, slow float so the shot feels alive without drawing attention */
+@keyframes phone-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+.hero--product .phone--front .phone-screen {
+  animation: phone-float 7s ease-in-out 1.4s infinite;
+}
+
+/* ---- Headline sheen ----
+   ⚠️ Lives on ::before, NOT on the h1. Setting `animation` on the h1 loses
+   to `.hero--product .hero-content > *` (equal specificity, later in the
+   cascade) and the sheen silently never runs. Kept here as a comment
+   because that bug was hit once already. */
+.hero--product .hero-title { position: relative; }
+.hero--product .hero-title::before {
+  content: '';
+  position: absolute;
+  inset: -2% -6%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%, transparent 41%,
+    rgba(251, 191, 36, 0.8) 50%,
+    transparent 59%, transparent 100%
+  );
+  background-size: 240% 100%;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  z-index: 2;
+  pointer-events: none;
+  animation: title-sheen 7.5s ease-in-out infinite;
+}
+@keyframes title-sheen {
+  0%, 20%   { background-position: 150% 0; }
+  60%, 100% { background-position: -50% 0; }
+}
+
+/* ---- Hero responsive ---- */
+@media (max-width: 1024px) {
+  .hero--product .hero-visual { min-height: 480px; }
+}
+@media (max-width: 768px) {
+  .hero--product .hero-visual { min-height: auto; }
+  .hero--product .phone { width: 208px; }
+  .hero--product .hero-visual::before { left: 0; width: 100%; }
+}
+
+/* ---- Reduced motion: no arrival, no glow, no sheen ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero--product .hero-content > *,
+  .hero--product .product-hero-icon,
+  .hero--product .phone--front,
+  .hero--product .phone--front .phone-screen,
+  .hero--product .hero-visual::before {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Decoration, not information — drop it rather than freeze a bright band */
+  .hero--product .hero-title::before { display: none; }
+}
+
+/* ==========================================
+   HERO — two-phone stack (v3 final)
+   ==========================================
+   Front phone leads with Snap and Log (one idea, the core action). The dense
+   dashboard sits behind, offset and dimmed, purely to give the composition
+   depth. It is decoration: alt="" and no accessible name, so a screen reader
+   gets one product shot, not two.
+   ========================================== */
+.hero--product .hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Front phone: upright, crisp, the focal point */
+.hero--product .phone--front {
+  position: relative;
+  z-index: 2;
+  transform: none;
+  width: 246px;
+}
+
+/* Back phone: peeks out to the left, dimmed and blurred so it reads as
+   background rather than a second competing screenshot. */
+.hero--product .phone--back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 208px;
+  transform: translate(-118%, -46%) rotate(-6deg);
+  opacity: 0.42;
+  filter: blur(0.6px) saturate(0.85);
+  z-index: 1;
+  animation: none;
+}
+
+/* Entrance: front rises, back settles slightly after */
+@keyframes front-rise {
+  from { opacity: 0; transform: translateY(44px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes back-rise {
+  from { opacity: 0; transform: translate(-118%, -41%) rotate(-10deg); }
+  to   { opacity: 0.42; transform: translate(-118%, -46%) rotate(-6deg); }
+}
+.hero--product .phone--front {
+  animation: front-rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+.hero--product .phone--back {
+  animation: back-rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* The front screen floats very gently — the only looping motion in the hero
+   besides the ambient glow. */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.hero--product .phone--front .phone-screen {
+  animation: hero-float 7s ease-in-out 1.5s infinite;
+}
+
+.hero--product .phone--front:hover {
+  transform: translateY(-6px);
+}
+
+@media (max-width: 1024px) {
+  .hero--product .phone--front { width: 230px; }
+  .hero--product .phone--back {
+    width: 190px;
+    transform: translate(-112%, -46%) rotate(-6deg);
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero--product .phone--front { width: 200px; }
+  /* The back phone crowds the composition on a phone; drop it. */
+  .hero--product .phone--back { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--product .phone--front,
+  .hero--product .phone--back,
+  .hero--product .phone--front .phone-screen {
+    animation: none !important;
+  }
+  .hero--product .phone--front { opacity: 1; transform: none; }
+  .hero--product .phone--back {
+    opacity: 0.42;
+    transform: translate(-118%, -46%) rotate(-6deg);
+  }
+}
