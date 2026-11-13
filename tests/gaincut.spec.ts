@@ -202,7 +202,67 @@ test.describe('GainCut product page', () => {
       expect(href).toContain('id6785259813');
       const loc = await cta.getAttribute('data-ga-location');
       expect(loc, 'CTA missing data-ga-location').toBeTruthy();
+      expect(href, 'CTA missing UTM campaign').toContain('utm_campaign=');
     }
+  });
+
+  test('clicking an App Store CTA actually fires a GA4 event', async ({ page }) => {
+    // REGRESSION GUARD for a real bug found 2026-11-13.
+    // All three CTAs carried data-ga="appstore_download" from the day the page
+    // was built, but main.js never read those attributes, so ZERO events had
+    // ever fired. The test above still passed because it only asserted the
+    // attribute existed — the markup looked instrumented, so nobody checked.
+    // Asserting the attribute is worthless; this asserts the event.
+    await page.evaluate(() => {
+      (window as any).__gaEvents = [];
+      (window as any).gtag = (...args: any[]) => {
+        if (args[0] === 'event') (window as any).__gaEvents.push({ name: args[1], params: args[2] });
+      };
+    });
+
+    // Reload so main.js binds its listeners against the stubbed gtag.
+    await page.reload();
+    await page.waitForFunction(() => typeof (window as any).gtag === 'function');
+
+    for (const location of ['nav', 'hero', 'footer']) {
+      await page.evaluate(() => {
+        (window as any).__gaEvents = [];
+        (window as any).gtag = (...args: any[]) => {
+          if (args[0] === 'event') (window as any).__gaEvents.push({ name: args[1], params: args[2] });
+        };
+      });
+
+      // Dispatch the click but stop the browser navigating away.
+      const sel = `[data-ga="appstore_download"][data-ga-location="${location}"]`;
+      await page.evaluate((s) => {
+        const el = document.querySelector(s) as HTMLAnchorElement;
+        el.addEventListener('click', (e) => e.preventDefault(), { once: true });
+        el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      }, sel);
+
+      const events = await page.evaluate(() => (window as any).__gaEvents);
+      const event = events.find((e: any) => e.name === 'appstore_download');
+      expect(event, `no appstore_download event fired for the ${location} CTA`).toBeTruthy();
+      expect(event.params.location, `event from ${location} carried the wrong location`).toBe(location);
+      expect(event.params.page).toBe('/gaincut/');
+    }
+  });
+
+  test('no analytics attribute is left unread by main.js', async ({ page }) => {
+    // Catches the general shape of the bug above: an attribute that looks like
+    // instrumentation but has no listener. If a new data-ga is added, this
+    // fails until main.js is wired to it.
+    const unread = await page.evaluate(() => {
+      const els = Array.from(document.querySelectorAll('[data-ga]'));
+      const localHost = window.location.hostname;
+      return els
+        .filter((el) => {
+          const a = el as HTMLAnchorElement;
+          return a.hostname === localHost; // off-site CTAs are excluded below
+        })
+        .map((el) => (el as Element).getAttribute('data-ga'));
+    });
+    expect(unread, 'data-ga present on a same-site element with no tracking').toHaveLength(0);
   });
 
   test('FAQ items open and expose their answer', async ({ page }) => {

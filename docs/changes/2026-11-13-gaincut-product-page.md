@@ -329,6 +329,28 @@ Only the GainCut element was removed.
 A negative-tested guard holds this: the test fails if `.hero-badge` returns to
 the product hero or if "Built in Hong Kong" reappears in `.hero-content`.
 
+## GA4 conversion tracking was dead
+
+Found 2026-11-13 while answering "should we promote". All three App Store CTAs
+had carried `data-ga="appstore_download"` and `data-ga-location` since the page
+was built — but **`main.js` never read those attributes**. Zero events had ever
+fired. The page could not attribute a single click.
+
+The old test did not catch it. It asserted the attributes *existed*, which is
+exactly the check that passes when nothing is wired. A dead attribute is worse
+than no attribute, because the markup looks instrumented and nobody checks.
+
+Now wired in `main.js`:
+
+- `appstore_download` on every `[data-ga]` element, carrying `location`
+  (nav / hero / footer), `page`, and `link_url`
+- `outbound_click` on any other off-site link, so no exit goes uncounted
+
+Verified in-browser: all three CTAs fire with the correct location and UTM
+campaign. Two new tests hold it — one dispatches a real click and asserts the
+event array, one fails if any `data-ga` attribute is left unread. The click test
+was negative-tested by stripping the tracking block: it fails without the fix.
+
 ## Deploy
 
 Committed and pushed to `main`. GA4 `appstore_download` events fire on all

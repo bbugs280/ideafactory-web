@@ -155,4 +155,43 @@
   // ---- Footer year ----
   var year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  /* ---- GA4 conversion events, 2026-11-13 -------------------------------
+     BUG: every CTA carried `data-ga="appstore_download"` and
+     `data-ga-location`, but NOTHING ever read those attributes. The markup
+     looked instrumented, so nobody checked, and zero events had ever fired.
+     A dead attribute is worse than no attribute because it reads as done.
+
+     Every click to the App Store is now a `appstore_download` event carrying
+     the location (nav / hero / footer) so we can tell which CTA converts.
+     `outbound_click` covers non-App-Store external links. */
+  function trackEvent(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', name, params || {});
+  }
+
+  var tracked = document.querySelectorAll('[data-ga]');
+  for (var i = 0; i < tracked.length; i++) {
+    tracked[i].addEventListener('click', function () {
+      trackEvent(this.getAttribute('data-ga'), {
+        location: this.getAttribute('data-ga-location') || 'unknown',
+        page: window.location.pathname,
+        link_url: this.getAttribute('href') || ''
+      });
+    });
+  }
+
+  // Any other off-site link, so no exit goes uncounted.
+  var allLinks = document.querySelectorAll('a[href^="http"]');
+  for (var j = 0; j < allLinks.length; j++) {
+    var a = allLinks[j];
+    if (a.hasAttribute('data-ga')) continue;
+    if (a.hostname === window.location.hostname) continue;
+    a.addEventListener('click', function () {
+      trackEvent('outbound_click', {
+        link_url: this.getAttribute('href') || '',
+        page: window.location.pathname
+      });
+    });
+  }
 })();
