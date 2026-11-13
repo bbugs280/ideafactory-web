@@ -4,34 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://ideafactory.one/">
-  <meta name="description" content="A product studio that only ships what's worth building. Every product is rigorously evaluated before it's built and continuously monitored after it ships.">
+  <meta name="description" content="IdeaFactory is a father-and-son product studio. We score ideas before we build them, ship iOS apps with AI at the core, and only keep what people actually use.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="IdeaFactory — A product studio that only ships what's worth building">
-  <meta property="og:description" content="Rigorously evaluated. Carefully built. Continuously improved.">
+  <meta property="og:title" content="IdeaFactory — Father and son. AI-powered operations.">
+  <meta property="og:description" content="A product studio that scores ideas before building them. iOS apps with AI at the core.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ideafactory.one">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IdeaFactory">
-  <meta name="twitter:description" content="A product studio that only ships what's worth building.">
   <meta property="og:image" content="https://ideafactory.one/assets/images/og/og-home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IdeaFactory">
+  <meta name="twitter:description" content="A product studio that only ships what's worth building.">
   <meta name="twitter:image" content="https://ideafactory.one/assets/images/og/og-home.png">
 
-  <title>IdeaFactory — A product studio that only ships what's worth building</title>
+  <title>IdeaFactory — Father and son. AI-powered operations.</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Google Analytics (GA4) -->
@@ -43,18 +38,16 @@
     gtag('config', 'G-QF4NXDNN3P');
   </script>
 
-  <!-- Schema.org - Organization -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "IdeaFactory",
     "url": "https://ideafactory.one",
-    "description": "A product studio that only ships what's worth building. Every product is rigorously evaluated before it's built and continuously monitored after it ships.",
+    "description": "A father-and-son product studio building iOS apps with AI at the core.",
     "logo": "https://ideafactory.one/assets/images/logo-full.svg",
-    "sameAs": [
-      "https://github.com/bbugs280"
-    ]
+    "sameAs": ["https://github.com/bbugs280"]
   }
   </script>
 </head>
@@ -63,331 +56,297 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#home" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
         <span class="nav-logo-text">IdeaFactory</span>
       </a>
       <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="mailto:support@ideafactory.one" class="nav-link">Contact</a></li>
+        <li><a class="btn btn-primary nav-cta" href="#products">See the apps</a></li>
       </ul>
-      <div class="theme-menu-wrapper" id="theme-menu-wrapper">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Select theme" aria-expanded="false" aria-haspopup="menu" title="Select theme">
-          <span class="theme-toggle-icon" aria-hidden="true">🎨</span>
-        </button>
-        <ul class="theme-menu" id="theme-menu" role="menu">
-          <li role="none"><a href="#" data-theme="teal" role="menuitem" class="theme-option">Deep Teal & Warm Gold</a></li>
-          <li role="none"><a href="#" data-theme="green" role="menuitem" class="theme-option">Forest Green & Copper</a></li>
-          <li role="none"><a href="#" data-theme="charcoal" role="menuitem" class="theme-option">Charcoal & Emerald</a></li>
-          <li role="none"><a href="#" data-theme="navy" role="menuitem" class="theme-option">Navy & Terracotta</a></li>
-          <li role="none"><a href="#" data-theme="amber" role="menuitem" class="theme-option">Dark Amber (Classic)</a></li>
-        </ul>
-      </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <main>
 
-    <!-- Hero Section -->
+    <!-- Hero: product-first -->
     <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-container">
-        <div class="hero-visual" aria-hidden="true">
-          <img src="assets/images/idea-factory-logo.png" alt="" class="hero-logo">
-        </div>
+      <div class="container-wide hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">Product Studio</div>
-          <h1 class="hero-title">We build tools that<br>solve real problems.</h1>
-          <p class="hero-subtitle">IdeaFactory researches, builds, and launches focused software tools. Every product starts with a real pain point, goes through rigorous evaluation, and only launches when it's ready to deliver value on day one.</p>
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Product studio · Hong Kong
+          </div>
+          <h1 class="hero-title">Father and son.<br>AI-powered operations.</h1>
+          <p class="hero-subtitle">
+            We score ideas before we build them. Two people plus a team of AI agents —
+            researching, building, and shipping iOS apps with AI at the core.
+          </p>
           <div class="hero-actions">
-            <a href="#products" class="btn btn-primary">See Our Products</a>
-            <a href="#about" class="btn btn-ghost">Our Story <span aria-hidden="true">→</span></a>
-            <a href="mailto:support@ideafactory.one" class="btn btn-ghost">💬 Say Hello <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary btn-lg" href="#products">See the apps</a>
+            <a class="btn btn-ghost btn-lg" href="#process">How we pick what to build</a>
+          </div>
+          <div class="hero-proof">
+            <span>3 apps shipped</span>
+            <span class="sep">·</span>
+            <span>1 in TestFlight</span>
+            <span class="sep">·</span>
+            <span>Every idea scored first</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone phone--back">
+            <div class="phone-screen">
+              <img src="assets/images/gaincut/shots/snap.jpg" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="phone phone--front">
+            <div class="phone-screen">
+              <img src="assets/images/gaincut/shots/dashboard.png" alt="GainCut dashboard showing calorie budget and 7-day balance" loading="eager">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tagline Bar -->
-    <div class="tagline-bar" aria-hidden="true">
-      <div class="container">
-        <p class="tagline">Rigorously evaluated &nbsp;·&nbsp; Carefully built &nbsp;·&nbsp; Continuously improved</p>
+    <!-- Proof bar -->
+    <div class="proof-bar">
+      <div class="container proof-bar-inner">
+        <span class="proof-item"><strong>AI that runs on device</strong> — no account, no cloud</span>
+        <span class="proof-item"><strong>Scored on 7 criteria</strong> before a line of code</span>
+        <span class="proof-item"><strong>Monitored after launch</strong>, not abandoned</span>
       </div>
     </div>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">About</span>
-          <h2 class="section-title">Father and son.<br>AI-powered operations.</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>IdeaFactory started with a classic family dilemma: a father concerned that his son was spending too much time on games. Instead of fighting about it, they decided to build something useful together. The son handles product vision and development. The father brings business strategy and product leadership. Behind the scenes, a team of AI agents handles everything else: market research, project tracking, progress monitoring, launch planning, and performance analytics.</p>
-            <p>Together, they embrace the age of AI — using it not to replace human creativity, but to amplify it. The son focuses on building great products while the father ensures each one solves real problems. The AI team handles the operational overhead, so they spend their time where it matters most — creating tools people actually need.</p>
-            <p>Every product on this site went through the same rigorous pipeline. It was scored against market demand, feasibility, revenue potential, and speed to ship. It only got built because the data said it was worth building. And once it launched, it's continuously monitored so they can improve it based on what's actually happening — not what they hope is happening.</p>
-          </div>
-          <aside class="about-highlight">
-            <figure class="about-bio-figure">
-              <img
-                src="assets/images/bio/IdeaFactory-Bio.png"
-                alt="Father and son team photo"
-                class="about-bio-photo"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
-            <blockquote class="highlight-quote">
-              "We don't build fifty things and hope one sticks. We evaluate dozens of ideas, pick the strongest few, and give each one our full attention. And we're doing it with AI as our partner, not our replacement."
-            </blockquote>
-            <p class="highlight-attribution">— Father & Son</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="section section-dark" id="process">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Our Process</span>
-          <h2 class="section-title">Every product follows<br>the same path.</h2>
-          <p class="section-subtitle">No shortcuts. No guessing. A repeatable system that filters ideas by merit and only ships what's earned its place.</p>
-        </div>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="process-number" aria-hidden="true">01</div>
-            <div class="process-content">
-              <h3>Idea Scoring</h3>
-              <p>Every idea is scored on five criteria: market size, build feasibility, differentiation from existing tools, willingness to pay, and speed to ship a working version. Low scores don't proceed.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number" aria-hidden="true">02</div>
-            <div class="process-content">
-              <h3>Build &amp; Track</h3>
-              <p>High-scoring ideas become real projects. I build the MVP while AI agents track every commit, flag risks, and keep the timeline honest. No hero sprints. No invisible progress.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number" aria-hidden="true">03</div>
-            <div class="process-content">
-              <h3>Launch Planning</h3>
-              <p>Before launch, a full marketing plan is assembled — positioning, copy, distribution channels, and growth experiments. Products launch with a plan, not just a post.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number" aria-hidden="true">04</div>
-            <div class="process-content">
-              <h3>Monitor &amp; Improve</h3>
-              <p>Performance is monitored weekly after launch. Products that find traction get further investment. Products that don't get an honest reassessment — pivot or shut down, no ego attached.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Section -->
+    <!-- Products -->
     <section class="section" id="products">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Products</span>
-          <h2 class="section-title">Tools that earned their place.</h2>
-          <p class="section-subtitle">Every product here passed the evaluation. It started as an idea, got scored, got built, and launched because the data said it was worth it.</p>
+        <div class="section-head reveal">
+          <span class="eyebrow">Products</span>
+          <h2 class="h2">Tools that earned their place.</h2>
+          <p class="lead">
+            Every product here was scored against market demand, build feasibility,
+            and whether anyone would pay for it. Low scores don't get built.
+          </p>
         </div>
-        <div class="products-grid has-products" id="products-grid">
-          <article class="product-card" aria-label="KidLaunch">
-            <div class="product-card-header">
-              <span class="product-card-tagline" style="font-size:28px;display:block;margin-bottom:4px">🚀</span>
-              <span class="product-card-tagline">Web App · AI Learning RPG</span>
-            </div>
-            <h3 class="product-card-name">KidLaunch</h3>
-            <p class="product-card-desc"><strong>Instead of playing games, he built one.</strong> An RPG adventure where kids complete real-world projects by battling guardian bosses. 6 phases. AI coaches. Built and shaped by a 12-year-old tester across 15 rounds.</p>
-            <p class="product-card-meta">Web · AI-powered · Kid-designed</p>
-            <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-              <a class="product-card-link" href="kidlaunch/">📖 Read the Story <span aria-hidden="true">→</span></a>
-              <a class="product-card-link" href="https://kidlaunch.beets3d.com?utm_source=ideafactory&utm_medium=referral&utm_campaign=product-card" target="_blank" rel="noopener noreferrer" style="background:var(--accent);color:#09090b;border-color:var(--accent)" onmouseover="this.style.background='var(--accent-light)'" onmouseout="this.style.background='var(--accent)'">▶ Try KidLaunch <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
 
-          <article class="product-card" aria-label="GainCut">
-            <div class="product-card-header">
-              <img src="assets/images/GainCut-icon.jpg" alt="GainCut logo" class="product-card-logo">
-              <span class="product-card-tagline">iOS App · AI Nutrition</span>
+        <!-- Flagship: GainCut -->
+        <article class="products-feature reveal">
+          <div class="products-feature-body">
+            <div class="product-card-head">
+              <img src="assets/images/GainCut-icon.jpg" alt="GainCut" class="product-card-logo">
+              <span class="product-card-tagline">iOS · AI nutrition<br>Live on the App Store</span>
             </div>
-            <h3 class="product-card-name">GainCut</h3>
-            <div class="product-card-media product-card-media--poster">
-              <img class="product-card-poster" src="assets/images/gaincut/gaincut-poster-1.png" alt="GainCut dashboard preview">
+            <h3 class="h2" style="font-size:clamp(1.75rem,3vw,2.25rem);margin-bottom:14px">GainCut</h3>
+            <p class="lead" style="margin-bottom:16px">
+              You're exact in the gym and guessing in the kitchen. That's a measurement
+              problem, not a discipline problem.
+            </p>
+            <p class="product-card-desc" style="margin-bottom:26px">
+              Snap a photo, get every food identified and your macros logged. Targets come
+              from your <strong>measured</strong> burn — BMR from your watch plus the active
+              energy you actually spent — not a formula from your age and height.
+            </p>
+            <div class="product-card-actions" style="margin-bottom:22px">
+              <a class="store-badge" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&utm_medium=referral&utm_campaign=homepage-feature"
+                 target="_blank" rel="noopener noreferrer" id="cta-gaincut-home">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.83-.81-3.01-.79-1.55.02-2.98.9-3.78 2.29-1.61 2.79-.41 6.92 1.15 9.18.77 1.11 1.68 2.35 2.88 2.31 1.16-.05 1.6-.75 3-.75s1.79.75 3.01.72c1.24-.02 2.03-1.13 2.79-2.24.88-1.28 1.24-2.53 1.26-2.59-.03-.01-2.42-.93-2.45-3.7zM14.79 5.3c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.78-.97 2.83 1.03.08 2.07-.52 2.71-1.29z"/></svg>
+                <span><small>Download on the</small>App Store</span>
+              </a>
+              <a class="pill-link" href="gaincut/">Read the full story →</a>
             </div>
-            <p class="product-card-desc"><strong>All gym. No results? Here's what you're missing.</strong> You train hard. But your diet is a guess. GainCut turns every meal into a macro breakdown with one photo — no scales, no math, no food diaries.</p>
-            <p class="product-card-desc">Built for lifters. Snap a photo, AI identifies every food and calculates macros. Targets auto-adjust to your training phase — surplus for gains, deficit for cuts. Apple Health integration means your weight, activity, and body fat drive real personalized targets. Protein prioritized. No accounts, no tracking.</p>
-            <p class="product-card-meta">iOS 17+ · One-photo macro breakdown · Phase-aware targets · Apple Health integrated · Free</p>
-            <div class="product-card-qr">
-              <p class="product-card-qr-caption" style="font-size:1.1em;font-weight:600;color:var(--color-accent);margin-bottom:0.25rem;">🚀 Now Available</p>
-              <p class="product-card-qr-caption">Free · AI-powered · 175 regions</p>
-            </div>
-            <a
-              class="product-card-link"
-              href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&utm_medium=referral&utm_campaign=product-card"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download GainCut on the App Store"
-            >Download on the App Store <span aria-hidden="true">→</span></a>
-          </article>
+            <p class="product-card-meta" style="margin:0;border:none;padding:0">
+              iPhone · iOS 17+ · 30 free AI scans every month · Pro HK$18/mo or HK$118/yr
+            </p>
+          </div>
+          <div class="products-feature-visual">
+            <figure class="feature-card-shot">
+              <img src="assets/images/gaincut/shots/target-math.jpg"
+                   alt="GainCut showing how your calorie target is calculated: BMR 1,577 plus 220 active energy equals a 1,798 TDEE, plus a 300 kcal gain surplus, giving a 2,098 kcal budget"
+                   loading="lazy">
+              <figcaption>The target isn't a guess — measured BMR plus real active energy, then your phase surplus.</figcaption>
+            </figure>
+          </div>
+        </article>
 
-          <article class="product-card" aria-label="PawMind">
-            <div class="product-card-header">
-              <img src="assets/images/PawMind-icon.jpg" alt="PawMind logo" class="product-card-logo">
-              <span class="product-card-tagline">iOS App · AI Vision</span>
+        <div class="products-grid">
+          <article class="product-card reveal">
+            <div class="product-card-head">
+              <img src="assets/images/PawMind-icon.jpg" alt="PawMind" class="product-card-logo">
+              <span class="product-card-tagline">iOS · AI vision<br>In TestFlight</span>
             </div>
             <h3 class="product-card-name">PawMind</h3>
-            <div class="product-card-media product-card-media--poster">
-              <img class="product-card-poster" src="assets/images/pawmind/pawmind-poster-1.png" alt="PawMind preview poster">
+            <figure class="product-poster">
+              <img src="assets/images/pawmind/pawmind-poster-1.png"
+                   alt="PawMind poster: Understand what your dog is really saying — AI-powered body language translator"
+                   loading="lazy">
+            </figure>
+            <p class="product-card-desc">
+              Your dog is talking to you through every head tilt and late-night zoomie.
+              PawMind reads the body language and tells you what they might be thinking.
+            </p>
+            <p class="product-card-meta">
+              iOS 17+ · Free · No data sold · Correct the AI and it learns
+            </p>
+            <div class="product-card-actions">
+              <a class="pill-link pill-link--accent" href="https://testflight.apple.com/join/7RhaGQSg?utm_source=ideafactory&utm_medium=referral&utm_campaign=homepage-card" target="_blank" rel="noopener noreferrer">Try on TestFlight</a>
             </div>
-            <div class="product-card-poster-tabs" role="group" aria-label="Select PawMind poster image">
-              <button
-                type="button"
-                class="product-poster-tab is-active"
-                data-poster-src="assets/images/pawmind/pawmind-poster-1.png"
-                aria-label="Show PawMind poster 1"
-              ><img src="assets/images/pawmind/pawmind-poster-1.png" alt="PawMind poster 1 thumbnail"></button>
-              <button
-                type="button"
-                class="product-poster-tab"
-                data-poster-src="assets/images/pawmind/pawmind-poster-2.png"
-                aria-label="Show PawMind poster 2"
-              ><img src="assets/images/pawmind/pawmind-poster-2.png" alt="PawMind poster 2 thumbnail"></button>
-              <button
-                type="button"
-                class="product-poster-tab"
-                data-poster-src="assets/images/pawmind/pawmind-poster-3.png"
-                aria-label="Show PawMind poster 3"
-              ><img src="assets/images/pawmind/pawmind-poster-3.png" alt="PawMind poster 3 thumbnail"></button>
-            </div>
-            <p class="product-card-desc">Your puppy is talking to you every second through every head tilt, bark, and late-night zoomie. PawMind uses AI to read your dog's body language and translate what they might be thinking.</p>
-            <p class="product-card-desc">Rate each guess and submit your correction. Every correction improves future responses and contributes to a growing dataset of real-world dog communication.</p>
-            <p class="product-card-meta">iOS 17+ · Free · No data sold · 2 min setup</p>
-            <div class="product-card-video-section">
-              <p class="product-card-video-label">Video viewer</p>
-              <div class="product-card-media">
-                <video class="product-card-video" controls playsinline preload="none" poster="assets/images/pawmind/pawmind-poster-1.png">
-                  <source src="assets/products/pawmind/tester-video-1-web.mp4" type="video/mp4">
-                  <track kind="captions" src="assets/products/pawmind/video1.srt" srclang="en" label="English" default>
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="product-card-video-tabs" role="group" aria-label="Select PawMind demo video">
-                <button
-                  type="button"
-                  class="product-video-tab is-active"
-                  data-video-src="assets/products/pawmind/tester-video-1-web.mp4"
-                >Video 1</button>
-                <button
-                  type="button"
-                  class="product-video-tab"
-                  data-video-src="assets/products/pawmind/test-video2-web.mp4"
-                >Video 2</button>
-              </div>
-            </div>
-            <div class="product-card-qr">
-              <picture>
-                <source srcset="assets/images/pawmind-qrcode-preview.svg" type="image/svg+xml">
-                <img
-                  class="product-card-qr-image"
-                  src="assets/images/pawmind-qr-testflight.png"
-                  alt="QR code to download and test PawMind on TestFlight"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </picture>
-              <p class="product-card-qr-caption">Scan to download and test on TestFlight</p>
-            </div>
-            <a
-              class="product-card-link"
-              href="https://testflight.apple.com/join/7RhaGQSg?utm_source=ideafactory&utm_medium=referral&utm_campaign=product-card"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download and test PawMind on TestFlight"
-            >Download & test on TestFlight <span aria-hidden="true">→</span></a>
           </article>
 
-          <article class="product-card" aria-label="Art Of War AI">
-            <div class="product-card-header">
-              <img src="assets/images/MasterSunIcon.png" alt="Art Of War AI logo" class="product-card-logo">
-              <span class="product-card-tagline">iOS/iPadOS App · On-Device AI</span>
+          <article class="product-card reveal">
+            <div class="product-card-head">
+              <img src="assets/images/MasterSunIcon.png" alt="Art of War AI" class="product-card-logo">
+              <span class="product-card-tagline">iOS/iPadOS · on-device AI<br>In TestFlight</span>
             </div>
-            <h3 class="product-card-name">Art Of War AI</h3>
-            <div class="product-card-media product-card-media--poster">
-              <img class="product-card-poster" src="assets/images/art-of-war-poster.png" alt="Art Of War AI poster">
+            <h3 class="product-card-name">Art of War AI</h3>
+            <figure class="product-poster">
+              <img src="assets/images/art-of-war-poster.png"
+                   alt="Art of War AI poster"
+                   loading="lazy">
+            </figure>
+            <p class="product-card-desc">
+              Sun Tzu's principles turned into practical guidance for work, leadership,
+              and hard decisions. Runs entirely on your iPhone — offline, private, no cloud.
+            </p>
+            <p class="product-card-meta">
+              iOS/iPadOS · Offline-first · EN + 繁體中文
+            </p>
+            <div class="product-card-actions">
+              <a class="pill-link pill-link--accent" href="https://testflight.apple.com/join/QtY29Gbq?utm_source=ideafactory&utm_medium=referral&utm_campaign=homepage-card" target="_blank" rel="noopener noreferrer">Try on TestFlight</a>
             </div>
-            <p class="product-card-desc">ArtOfWarAI is an on-device AI strategy app that helps you think clearly in high-stakes moments. It turns Sun Tzu's principles into practical, modern guidance for leadership, work, study, and daily decision-making.</p>
-            <p class="product-card-desc">Most AI tools are generic, cloud-dependent, and weak on privacy. ArtOfWarAI runs locally on iPhone and iPad, keeps conversations private, works offline, and delivers focused advice through a consistent Master Sun persona in English and Traditional Chinese. The goal is simple: give people a calm, strategic thinking partner they can trust anytime, anywhere.</p>
-            <p class="product-card-meta">iOS/iPadOS · Offline-first · Private by design · EN + Traditional Chinese</p>
-            <div class="product-card-qr">
-              <img
-                class="product-card-qr-image"
-                src="assets/images/ArtOfWar-TestFlight-QR.png"
-                alt="QR code to download and test Art Of War AI on TestFlight"
-                loading="lazy"
-                decoding="async"
-              >
-              <p class="product-card-qr-caption">Scan to download and test on TestFlight</p>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card-head">
+              <span class="product-card-logo" style="display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--bg-subtle)">🚀</span>
+              <span class="product-card-tagline">Web · AI learning RPG<br>Live</span>
             </div>
-            <a
-              class="product-card-link"
-              href="https://testflight.apple.com/join/QtY29Gbq?utm_source=ideafactory&utm_medium=referral&utm_campaign=product-card"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download and test Art Of War AI on TestFlight"
-            >Download & test on TestFlight <span aria-hidden="true">→</span></a>
+            <h3 class="product-card-name">KidLaunch</h3>
+            <div class="product-poster product-poster--guardian" aria-hidden="true">
+              <img src="assets/images/kidlaunch/kip.png" alt="" loading="lazy">
+              <span class="guardian-caption">Kip · your first guardian</span>
+            </div>
+            <p class="product-card-desc">
+              Instead of playing games, he built one. An RPG where kids finish real-world
+              projects by beating guardian bosses — shaped by a 12-year-old tester across 15 rounds.
+            </p>
+            <p class="product-card-meta">
+              Web · 6 phases · AI coaches · Kid-designed
+            </p>
+            <div class="product-card-actions">
+              <a class="pill-link pill-link--accent" href="https://kidlaunch.beets3d.com?utm_source=ideafactory&utm_medium=referral&utm_campaign=homepage-card" target="_blank" rel="noopener noreferrer">Try KidLaunch</a>
+              <a class="pill-link" href="kidlaunch/">The story</a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section section-dark" id="contact">
+    <!-- Process -->
+    <section class="section section-dark" id="process">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Contact</span>
-          <h2 class="section-title">Say hello.</h2>
-          <p class="section-subtitle">Questions about our products, the process, or a problem you'd like us to solve? We'd love to hear from you.</p>
+        <div class="section-head reveal">
+          <span class="eyebrow">Process</span>
+          <h2 class="h2">Score first. Build second.</h2>
+          <p class="lead">
+            The expensive mistake is building something nobody wants. So the score comes
+            before the code, and every product carries a date it gets reviewed again.
+          </p>
         </div>
-        <p style="text-align:center;margin-top:2rem;">
-          <a href="mailto:support@ideafactory.one" class="btn btn-primary">support@ideafactory.one</a>
-        </p>
+        <div class="process-grid reveal">
+          <div class="process-step">
+            <div class="process-number">01</div>
+            <h3>Score</h3>
+            <p>Seven criteria: market need, feasibility, distribution, competition, moat, monetisation, and a real dollar band. Low scores stop here.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">02</div>
+            <h3>Build</h3>
+            <p>Tests before features. Every version tagged, every change logged. AI agents track commits and flag risks while the code gets written.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">03</div>
+            <h3>Launch</h3>
+            <p>Listing, story page, screenshots, and a measured download button — so traffic can actually be attributed instead of guessed at.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">04</div>
+            <h3>Monitor</h3>
+            <p>Ratings, search impressions, and usage get reviewed on a schedule. Products that don't find traction get an honest reassessment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-text reveal">
+            <span class="eyebrow">About</span>
+            <h2 class="h2" style="margin-bottom:24px">It started with an argument about screen time.</h2>
+            <p>
+              A father worried his son was spending too much time playing games. Instead of
+              banning them, they built something together — and kept going.
+            </p>
+            <p>
+              The son builds the products. The father brings strategy and product leadership.
+              Behind them, a team of AI agents handles the research, the tracking, the
+              monitoring, and the launch planning.
+            </p>
+            <p>
+              That's the whole thesis: AI as leverage, not replacement. Two people can run
+              like a studio if the operational overhead is handled by agents that never sleep.
+            </p>
+            <blockquote class="story-quote">
+              "We don't build fifty things and hope one sticks. We evaluate dozens, pick the
+              strongest few, and give each one our full attention."
+              <span class="attribution">— Father &amp; Son</span>
+            </blockquote>
+          </div>
+          <div class="story-media reveal">
+            <img src="assets/images/bio/IdeaFactory-Bio.png" alt="Father and son, the IdeaFactory team" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" id="contact">
+      <div class="container">
+        <h2 class="h2">Say hello.</h2>
+        <p class="lead">Questions about a product, the process, or a problem worth solving? We read everything.</p>
+        <a class="btn btn-primary btn-lg" href="mailto:support@ideafactory.one">support@ideafactory.one</a>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#home" class="nav-logo">
+      <div>
+        <a href="/" class="nav-logo">
           <img src="assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
           <span class="nav-logo-text">IdeaFactory</span>
         </a>
-        <p class="footer-tagline">A product studio that only ships what's worth building.</p>
+        <p class="footer-tagline">A father-and-son product studio. AI-powered operations.</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="#about">About</a>
-        <a href="#process">Process</a>
         <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="mailto:support@ideafactory.one">Contact</a>
       </nav>
     </div>
     <div class="container footer-bottom">
-      <p>Built, launched, and maintained by a father and son team with an AI-powered product team.<br>Every product is evaluated before it's built and monitored after it ships.</p>
-      <p class="footer-copy">© <span id="current-year">2026</span> IdeaFactory. All rights reserved.</p>
+      <p>Made in Hong Kong 🇭🇰 · © <span id="current-year">2026</span> IdeaFactory</p>
     </div>
   </footer>
 
