@@ -305,6 +305,30 @@ now asserts the loaded asset is at least **2x the rendered size**, that a `2x`
 option is offered at all, and that a lightweight `1x` file exists. Measured at
 DPR 1: 320px natural for a 132px render.
 
+## Hero eyebrow removed
+
+The hero carried a pill badge above the icon reading **"Built in Hong Kong ·
+iOS"**. Removed on Vincent's call.
+
+It occupied the most valuable pixel on the page — immediately above the H1 —
+to answer a question nobody had asked. Worse, it is a *scarcity* signal: "built
+in Hong Kong" reads as small studio to someone deciding in three seconds whether
+this is a real product. Cal AI and MacroFactor lead with the outcome, not the
+postcode.
+
+The Hong Kong advantage is real, but it is already argued properly further down
+the page — "Most trackers fail on the food you actually eat" followed by char
+siu, wonton noodles and dim sum. That is proof. A label above the headline is
+just repetition. The `iOS` half was redundant twice over, since the CTA
+immediately below already says "App Store".
+
+The `.hero-badge` CSS was kept — the homepage uses it for "Product studio ·
+Hong Kong", which is a genuine brand line, and KidLaunch has its own variant.
+Only the GainCut element was removed.
+
+A negative-tested guard holds this: the test fails if `.hero-badge` returns to
+the product hero or if "Built in Hong Kong" reappears in `.hero-content`.
+
 ## Deploy
 
 Committed and pushed to `main`. GA4 `appstore_download` events fire on all

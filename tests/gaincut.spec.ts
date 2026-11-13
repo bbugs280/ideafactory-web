@@ -341,6 +341,22 @@ test.describe('GainCut hero composition', () => {
     expect(r.frontW).toBeGreaterThan(r.backW);
   });
 
+  test('the hero says nothing above the product name', async ({ page }) => {
+    // Vincent cut the "Built in Hong Kong · iOS" eyebrow pill on 2026-11-13.
+    // It answered a question nobody asked, sat in the most valuable pixel above
+    // the H1, and read as a scarcity signal ("small studio"). The HK advantage
+    // is argued properly further down the page with char siu and dim sum, so it
+    // does not need repeating as a label. This guard stops it creeping back.
+    await expect(page.locator('.hero--product .hero-badge')).toHaveCount(0);
+
+    const bodyText = await page.locator('.hero--product .hero-content').innerText();
+    expect(bodyText, 'the hero eyebrow label has returned').not.toMatch(/Built in Hong Kong/i);
+
+    // The H1 must still be the first text in the hero.
+    const firstHeading = await page.locator('.hero--product .hero-content h1').first().innerText();
+    expect(firstHeading).toMatch(/Photo in/i);
+  });
+
   test('hero entrance animations are present and settle', async ({ page }) => {
     const front = await page
       .locator('.hero--product .phone--front')
