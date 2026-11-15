@@ -319,6 +319,38 @@ strong { color: var(--text); font-weight: 600; }
 
 .nav-cta { margin-left: 10px; }
 
+/* Language switch, added 2026-11-15.
+   It existed only in the footer first, and Vincent could not find it on a
+   nine-section page. It now sits in the nav on BOTH language versions.
+   Rendered as a small outlined pill so it reads as a control, not as a
+   seventh nav item competing with the section links.
+   ⚠️ Hidden with the other nav items on the mobile breakpoint, where the
+   footer link remains the fallback — the hamburger menu already carries
+   five items plus the CTA. */
+.nav-links .lang-switch {
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+}
+.nav-links .lang-switch a {
+  padding: 6px 11px;
+  border: 1px solid var(--border, rgba(255,255,255,.22));
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color var(--t), border-color var(--t);
+}
+.nav-links .lang-switch a:hover {
+  color: var(--text);
+  border-color: var(--text-secondary);
+  background-color: transparent;
+}
+
 /* Hamburger */
 .nav-toggle {
   display: none;

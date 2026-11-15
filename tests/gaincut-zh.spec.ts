@@ -97,6 +97,28 @@ test.describe('GainCut Cantonese page', () => {
     expect(fired).toContain('lang_switch');
   });
 
+  test('language switch is reachable from the nav, not only the footer', async ({ page }) => {
+    // Vincent could not find it on a nine-section page when it was footer-only.
+    const navSwitch = page.locator('.nav-links a[data-ga="lang_switch"]');
+    await expect(navSwitch, 'the switch must be visible in the top nav').toBeVisible();
+    await expect(navSwitch).toHaveText(/EN|English/);
+  });
+
+  test('App Store badge reads naturally in Chinese — no stray locative particle', async ({ page }) => {
+    // The badge originally read "喺 App Store 下載". 喺 is a locative particle
+    // ("at"), so that string parses as "at App Store download" — not something
+    // a Chinese speaker writes. Apple's English "Download on the" has no direct
+    // Chinese equivalent here; the badge should just be "App Store 下載".
+    const smalls = await page.$$eval('a.store-badge small', (els) =>
+      els.map((e) => e.textContent?.trim() || ''),
+    );
+    expect(smalls.length).toBeGreaterThan(0);
+    for (const text of smalls) {
+      expect(text, `badge sub-label "${text}" must not open with 喺`).not.toMatch(/^喺/);
+      expect(text).toBe('App Store 下載');
+    }
+  });
+
   test('pricing matches the StoreKit config, not an invented number', async ({ page }) => {
     const body = await page.locator('body').innerText();
     // Source of truth: ios/GainCut/Resources/GainCut.storekit
