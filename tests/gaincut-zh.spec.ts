@@ -97,6 +97,56 @@ test.describe('GainCut Cantonese page', () => {
     expect(fired).toContain('lang_switch');
   });
 
+  test('hero phone screenshots are not stretched', async ({ page }) => {
+    // Added 2026-11-15 after a real defect shipped: this page used
+    // <figure class="phone"><img></figure> with no .phone-screen wrapper, so
+    // `.phone-screen img { height:100%; object-fit:cover }` never matched and
+    // the HTML attribute height="2622" became the rendered height. The phone
+    // box measured 246x2640 instead of ~246x535 — a vertical smear.
+    //
+    // ⚠️ This is measured, not eyeballed. The page did not look "broken", it
+    // looked busy, which is exactly why it survived a visual review. Assert the
+    // rendered aspect against the source image aspect and let the numbers fail.
+    const phones = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll('.hero-visual .phone')).map((phone) => {
+        const screen = phone.querySelector('.phone-screen') as HTMLElement | null;
+        const img = phone.querySelector('img') as HTMLImageElement | null;
+        if (!img || !screen) return { error: 'phone missing .phone-screen or img' };
+        const rp = phone.getBoundingClientRect();
+        return {
+          // ⚠️ offsetWidth/offsetHeight, NOT getBoundingClientRect, for the
+          // aspect check. The back phone is rotated -6deg, which inflates its
+          // axis-aligned bounding box (measured 0.539 vs a true 0.46) and made
+          // this test fail on a correctly-rendered element. offset* ignores
+          // transforms, so it measures the box the layout actually produced.
+          naturalAspect: img.naturalWidth / img.naturalHeight,
+          screenOffsetAspect: screen.offsetHeight ? screen.offsetWidth / screen.offsetHeight : 0,
+          phoneHeight: Math.round(rp.height),
+          phoneWidth: Math.round(rp.width),
+        };
+      });
+    });
+
+    expect(phones.length).toBeGreaterThan(0);
+    for (const p of phones as Array<Record<string, number | string | undefined>>) {
+      expect(p.error, 'every .phone must contain .phone-screen > img').toBeUndefined();
+
+      // The screen element must carry the source aspect ratio (1206/2622 = 0.46).
+      expect(
+        p.screenOffsetAspect as number,
+        `.phone-screen lays out at aspect ${p.screenOffsetAspect} but the source is ${p.naturalAspect}`,
+      ).toBeCloseTo(p.naturalAspect as number, 2);
+
+      // And the phone must not be absurdly tall — a 0.46 portrait phone at
+      // ~246px wide is ~535px tall. Past 900px means the img height attribute
+      // leaked through again.
+      expect(
+        p.phoneHeight as number,
+        `phone rendered ${p.phoneWidth}x${p.phoneHeight} — height is coming from the img attribute, not CSS`,
+      ).toBeLessThan(900);
+    }
+  });
+
   test('language switch is reachable from the nav, not only the footer', async ({ page }) => {
     // Vincent could not find it on a nine-section page when it was footer-only.
     const navSwitch = page.locator('.nav-links a[data-ga="lang_switch"]');
