@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GainCut — 影張相就知卡路里，香港嘢食都認得 | 健身人士用嘅 AI 卡路里 App</title>
+  <meta name="description" content="影一張相，即刻知蛋白質、碳水同脂肪。GainCut 係為香港健身人士而做嘅 AI 卡路里 App，叉燒飯、雲吞麵、點心、茶餐廳都認得。每月 30 次免費 AI 掃描。">
+  <link rel="canonical" href="https://ideafactory.one/gaincut/zh/">
+
+  <!-- hreflang: pair the two language versions both ways -->
+  <link rel="alternate" hreflang="en" href="https://ideafactory.one/gaincut/">
+  <link rel="alternate" hreflang="zh-Hant-HK" href="https://ideafactory.one/gaincut/zh/">
+  <link rel="alternate" hreflang="x-default" href="https://ideafactory.one/gaincut/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GainCut — 影張相，卡路里即刻出嚟。">
+  <meta property="og:description" content="為香港健身人士而做嘅 AI 卡路里 App。影你碟飯，即刻出蛋白質、碳水同脂肪，再對住你嘅目標計。每月 30 次免費。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ideafactory.one/gaincut/zh/">
+  <meta property="og:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="IdeaFactory">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GainCut — 影張相，卡路里即刻出嚟。">
+  <meta name="twitter:description" content="為香港健身人士而做嘅 AI 卡路里 App。每月 30 次免費。">
+  <meta name="twitter:image" content="https://ideafactory.one/assets/images/og/og-gaincut.png">
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/product-pages.css">
+  <style>
+    /* CJK line-height and word-break for the Chinese page.
+       Cantonese needs slightly looser leading than Latin at the same size,
+       and CJK must break anywhere rather than at spaces.
+
+       ⚠️ FONT ORDER MATTERS AND IS NOT COSMETIC.
+       Measured 2026-11-15: with `Inter` FIRST, all Noto Sans TC faces stayed
+       `status: unloaded` and `document.fonts.check('16px "Noto Sans TC"')`
+       returned false — Inter claims the glyph slot, so the browser never
+       fetches the CJK face. macOS still rendered correctly because the system
+       fallback (PingFang HK) covers every character, which is why the page
+       LOOKED fine here and would have shipped broken for anyone on Windows.
+       Noto Sans TC must therefore come before Inter in the CJK stack. */
+    body {
+      font-family: 'Noto Sans TC', 'PingFang HK', 'Hiragino Sans CNS', 'Microsoft JhengHei', 'Inter', -apple-system, sans-serif;
+    }
+    /* Latin-only runs (numbers, prices, brand names) read better in Inter. */
+    .stat-value, .price-amount, .store-badge span, .nav-logo-text, code {
+      font-family: 'Inter', -apple-system, sans-serif;
+    }
+    .h1, .h2, .hero-title { line-height: 1.28; letter-spacing: 0; }
+    p, li, td, th, summary { line-height: 1.85; word-break: normal; overflow-wrap: anywhere; }
+    .lang-switch { margin-left: 18px; font-size: 13px; opacity: .72; }
+    .lang-switch a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF4NXDNN3P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QF4NXDNN3P');
+  </script>
+
+  <!-- Schema.org — SoftwareApplication, inLanguage zh-Hant-HK -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GainCut",
+    "inLanguage": "zh-Hant-HK",
+    "applicationCategory": "HealthApplication",
+    "applicationSubCategory": "Nutrition Tracking",
+    "operatingSystem": "iOS 17.0 or later",
+    "description": "為健身人士而設嘅 AI 卡路里 App。影一張相，估算蛋白質、碳水同脂肪，再對住你嘅訓練階段計算目標，並結合 HRV、靜止心率同睡眠計出每日恢復分數。認得香港本地菜式。",
+    "url": "https://ideafactory.one/gaincut/zh/",
+    "downloadUrl": "https://apps.apple.com/hk/app/gaincut/id6785259813",
+    "softwareVersion": "1.4",
+    "author": {
+      "@type": "Organization",
+      "name": "IdeaFactory",
+      "url": "https://ideafactory.one"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "免費版每月包括 30 次 AI 食物掃描。"
+    },
+    "featureList": [
+      "AI 食物相片掃描",
+      "按增肌、減脂、維持階段計算卡路里目標",
+      "蛋白質、碳水同脂肪追蹤",
+      "由 HRV、靜止心率同睡眠計出恢復分數",
+      "認得香港本地菜式"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 導覽 -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="../../assets/images/logo-icon.svg" alt="IdeaFactory" class="nav-logo-icon">
+        <span class="nav-logo-text">IdeaFactory</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#how" class="nav-link">點用</a></li>
+        <li><a href="#features" class="nav-link">功能</a></li>
+        <li><a href="#pricing" class="nav-link">價錢</a></li>
+        <li><a href="#faq" class="nav-link">常見問題</a></li>
+        <li><a class="btn btn-primary nav-cta" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-nav&amp;utm_content=zh" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="nav-zh">下載</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="開關導覽選單" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================
+         1. HERO
+         ============================ -->
+    <section class="hero hero--product" id="top">
+      <div class="container-wide hero-inner">
+        <div class="hero-content">
+          <img class="gc-mark"
+               src="/assets/images/gaincut/gaincut-icon-320.png"
+               srcset="/assets/images/gaincut/gaincut-icon-320.png 1x,
+                       /assets/images/gaincut/gaincut-icon-1024.png 2x"
+               alt="GainCut 圖示：綠色叉配橙色啞鈴"
+               width="132" height="132" fetchpriority="high" decoding="async">
+          <h1 class="hero-title">影張相，<br>卡路里即刻出嚟。</h1>
+          <p class="hero-subtitle">
+            GainCut 係為真正有操練嘅人而做嘅 AI 卡路里 App。
+            影你碟飯，佢會計出蛋白質、碳水同脂肪，
+            再對住你嘅階段目標記錄低。
+          </p>
+          <div class="hero-actions">
+            <a class="store-badge" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-hero&amp;utm_content=zh" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="hero-zh">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.2 1.79-3.26 1.87-3.31-1.02-1.49-2.61-1.7-3.17-1.72-1.35-.14-2.63.79-3.32.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.59 1.1 8.75.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.17-2.4 1.19-2.46-.03-.01-2.29-.88-2.31-3.47zM14.88 6.03c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.04 1.68-.91 2.67.97.08 1.96-.49 2.55-1.22z"/></svg>
+              <span>App Store<small>喺 App Store 下載</small></span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#how">睇下點用</a>
+          </div>
+          <p class="hero-note">
+            每月 30 次免費 AI 掃描 · 唔使信用卡 · iOS 17+
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-stack">
+            <figure class="phone phone--back">
+              <img src="../../assets/images/gaincut/shots/dashboard.png" alt="GainCut 主頁，顯示卡路里預算同三大營養素" width="1206" height="2622" loading="lazy">
+            </figure>
+            <figure class="phone phone--front">
+              <img src="../../assets/images/gaincut/shots/snap.jpg" alt="GainCut 影相記錄頁面" width="1206" height="2622" fetchpriority="high">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 數字行 -->
+    <section class="section section-tight">
+      <div class="container">
+        <div class="stat-row reveal">
+          <div class="stat-cell">
+            <div class="stat-value">30<span class="unit">/月</span></div>
+            <div class="stat-label">
+              免費 AI 掃描
+              <small>每個月都有，免費版都有</small>
+            </div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">3 <span class="unit">項</span></div>
+            <div class="stat-label">
+              蛋白質、碳水、脂肪
+              <small>唔係得一個數字</small>
+            </div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">1 <span class="unit">張相</span></div>
+            <div class="stat-label">
+              就記錄一餐
+              <small>唔使磅、唔使搵、唔使寫日記</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         3. 問題
+         ============================ -->
+    <section class="section section-dark" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">問題喺邊</span>
+          <h2 class="h2">健身室你計到好準，<br>但厨房你係靠估。</h2>
+          <p class="lead">
+            你嘅重量計到公斤，組數計到次。但係你食嘢嘅時候，
+            唔知自己究竟食夠 120&nbsp;克蛋白質，定係得 60 克。
+            呢個唔係意志力問題，係度量問題。
+            一個你從來冇量過嘅數字，幾多決心都補唔返。
+          </p>
+        </div>
+        <div class="feature-block reveal">
+          <div class="feature-block-text">
+            <h3>大部分 App 都敗喺你真正食嘅嘢食。</h3>
+            <p>
+              西式為主嘅食物資料庫，從來冇見過叉燒、一碗雲吞麵、
+              一籠點心。所以你只能靠估，或者搵足二十分鐘，
+              到星期四就頂唔順放棄。
+            </p>
+            <p>
+              GainCut 喺香港做出嚟。佢睇你面前嘅碟飯，
+              唔會叫你喺一個冇你嘢食嘅清單入面揀。
+            </p>
+            <ul class="feature-list">
+              <li>認得本地菜式，唔止認得入口嘅包裝食品</li>
+              <li>份量由相片估算，唔使磅</li>
+              <li>一餐一筆記錄，十秒內搞掂</li>
+            </ul>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../../assets/images/gaincut/shots/meals.jpg" alt="GainCut 今日餐單，包括兩杯咖啡、港式奶茶、青咖喱雞飯同抹茶軟雪糕" width="1206" height="1073" loading="lazy">
+              <figcaption>
+                <strong>今日餐單</strong>
+                港式奶茶、青咖喱飯、抹茶軟雪糕 — 全部影相記錄。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         4. 點用
+         ============================ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">點用</span>
+          <h2 class="h2">三個步驟，大約十秒。</h2>
+          <p class="lead">
+            食物記錄 App 最重要嘅係你會一直用落去。
+            每個步驟都係為咗減少一個令你放棄嘅理由。
+          </p>
+        </div>
+
+        <div class="mech reveal">
+          <div class="mech-step">
+            <h3>影低碟飯</h3>
+            <p>
+              開相機，影你嘅餐。唔使掃條碼、唔使打字搵品牌名。
+            </p>
+          </div>
+          <div class="mech-step">
+            <h3>佢認得啲嘢食</h3>
+            <p>
+              模型會認出菜式、估算份量，再拆成蛋白質、碳水同脂肪。
+            </p>
+          </div>
+          <div class="mech-step">
+            <h3>對住你目標記錄</h3>
+            <p>
+              餐會計入一個由你實際消耗同訓練階段計出嚟嘅卡路里預算 —
+              增肌、減脂或者維持。
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-block reveal" style="margin-top: 96px;">
+          <div class="feature-block-text">
+            <h3>你嘅目標係計出嚟，唔係估。</h3>
+            <p>
+              GainCut 由你嘅基礎代謝率開始，加上你活動實際燒嘅卡路里，
+              再套用你嘅階段 — 增肌就盈餘，減脂就赤字，維持就唔加減。
+            </p>
+            <p>
+              每個目標都會顯示個算式，你可以清楚睇到個數字點嚟 —
+              唔同意都可以質疑佢。
+            </p>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../../assets/images/gaincut/shots/target-math.jpg" alt="GainCut 目標計算，顯示基礎代謝率加活動消耗等於每日總消耗，再加盈餘" width="1206" height="937" loading="lazy">
+              <figcaption>
+                <strong>目標連算式一齊睇</strong>
+                基礎代謝加活動消耗再加階段盈餘 — 冇黑盒。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         5. 功能
+         ============================ -->
+    <section class="section section-dark" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">功能</span>
+          <h2 class="h2">佢追蹤啲乜，點解每樣都重要。</h2>
+        </div>
+
+        <div class="feature-block reveal">
+          <div class="feature-block-text">
+            <h3>每個營養素都有原因。</h3>
+            <p>
+              淨係計卡路里，分唔到你減嘅係脂肪定肌肉。
+              GainCut 將每餐拆成三大營養素，同時講明每樣做乜。
+            </p>
+            <ul class="feature-list">
+              <li><strong>蛋白質</strong> — 保住同建立肌肉</li>
+              <li><strong>碳水</strong> — 操練嘅能量</li>
+              <li><strong>脂肪</strong> — 荷爾蒙調節</li>
+            </ul>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../../assets/images/gaincut/shots/macros.jpg" alt="GainCut 營養素追蹤，顯示蛋白質 59/122 克、碳水 162/201 克、脂肪 56/89 克" width="1206" height="569" loading="lazy">
+              <figcaption>
+                <strong>營養素</strong>
+                每條 bar 顯示今日仲差幾多，唔止顯示你食咗幾多。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="feature-block feature-block--flip reveal">
+          <div class="feature-block-text">
+            <h3>盈餘要配合恢復，先會變肌肉。</h3>
+            <p>
+              食多咗但每晚淨係瞓六個鐘，好多盈餘都去唔到肌肉。
+              GainCut 會讀 Apple Health 嘅 HRV、靜止心率同睡眠，
+              計出每日恢復分數，話你知今日應該推，定係應該收。
+            </p>
+            <ul class="feature-list">
+              <li>由你本身嘅數據計，唔係用一般平均值</li>
+              <li>每日一個提示：推定收</li>
+              <li>需要 Apple Health 數據先有用</li>
+            </ul>
+          </div>
+          <div class="feature-block-media">
+            <figure class="shot-card">
+              <img src="../../assets/images/gaincut/shots/recovery.jpg" alt="GainCut 恢復分數，由 HRV、靜止心率同睡眠計出" width="1206" height="1073" loading="lazy">
+              <figcaption>
+                <strong>恢復分數</strong>
+                HRV、靜止心率同睡眠，砌成一個每日答案。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         6. 唔做啲乜
+         ============================ -->
+    <section class="section" id="limits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">老實講</span>
+          <h2 class="h2">GainCut 唔會做啲乜。</h2>
+          <p class="lead">
+            由相片估出嚟嘅數字，始終係估算。呢度清楚講明界線，
+            你買嘅時候就知自己買緊乜。
+          </p>
+        </div>
+        <div class="reveal">
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <th>相片掃描係估算</th>
+                <td>由相片估份量一定有誤差。GainCut 嘅目標係「夠準到你用得着」，唔係取代實驗室磅。</td>
+              </tr>
+              <tr>
+                <th>改嘅係你，唔係模型</th>
+                <td>每個結果儲存之前你都可以改。App 永遠唔會偷偷改你嘅判斷。</td>
+              </tr>
+              <tr>
+                <th>卡路里唔係對你身體嘅量度</th>
+                <td>目標由公式同你記錄嘅活動計出。佢係一個起點，之後再調，唔係醫療處方。</td>
+              </tr>
+              <tr>
+                <th>淨係 iPhone，iOS 17 或以上</th>
+                <td>冇 Android 版本。恢復分數需要有 Apple Health 數據先有用。</td>
+              </tr>
+              <tr>
+                <th>唔係醫療儀器</th>
+                <td>GainCut 唔會診斷、治療或者管理任何疾病。如果你有臨床需要，請睇專業人士。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         7. 價錢
+         ============================ -->
+    <section class="section section-dark" id="pricing">
+      <div class="container">
+        <div class="section-head reveal" style="text-align: center; margin-inline: auto;">
+          <span class="eyebrow">價錢</span>
+          <h2 class="h2">免費版真係用得。</h2>
+          <p class="lead" style="margin-inline: auto;">
+            每月三十次 AI 掃描，大約等於一日一餐。
+            如果你只需要咁多，你永遠都唔使俾錢。
+          </p>
+        </div>
+
+        <div class="price-grid reveal">
+          <div class="price-card">
+            <div class="price-name">免費</div>
+            <div class="price-amount">免費</div>
+            <p class="price-note">唔使信用卡，唔會試用完就冇</p>
+            <ul class="price-list">
+              <li>每月 30 次 AI 食物掃描</li>
+              <li>完整營養素分析</li>
+              <li>按訓練階段計嘅卡路里目標</li>
+              <li>由 Apple Health 計嘅恢復分數</li>
+              <li>七日平衡</li>
+            </ul>
+          </div>
+
+          <div class="price-card price-card--featured">
+            <div class="price-name">Pro</div>
+            <div class="price-amount">
+              US$1.99<span class="price-period">/月</span>
+            </div>
+            <p class="price-note">
+              或者 US$14.99／年 — 最多慳 45%。年費計劃有 3 日免費試用。
+              App Store 會用你當地貨幣顯示價錢。
+            </p>
+            <ul class="price-list">
+              <li>無限次 AI 食物掃描</li>
+              <li>包含免費版所有功能</li>
+              <li>新功能優先使用</li>
+              <li>隨時喺 iOS 設定取消</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="hero-note" style="text-align: center; margin-top: 28px;">
+          付款由 Apple 處理。你可以隨時喺 App Store 訂閱設定取消。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================
+         8. 常見問題
+         ============================ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">常見問題</span>
+          <h2 class="h2">值得問嘅問題。</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details class="faq-item">
+            <summary>GainCut 係唔係免費？</summary>
+            <div class="faq-answer">
+              <p>
+                係。免費版每月包括 <strong>30 次 AI 食物掃描</strong>，唔會過期。
+                Pro 就取消每月掃描上限：<strong>US$1.99／月 或 US$14.99／年</strong>
+                （最多慳 45%），年費計劃有 3 日免費試用。
+                App Store 會用你當地貨幣收費。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>佢認唔認得香港嘢食？</summary>
+            <div class="faq-answer">
+              <p>
+                喺香港做出嚟，所以認得本地菜式 — 叉燒、白飯、麵、
+                點心、港式奶茶 — 唔會好似西式資料庫咁認唔到就當錯。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>要唔要 Apple Watch 或者 Whoop？</summary>
+            <div class="faq-answer">
+              <p>
+                唔使。恢復分數會讀 Apple Health 嘅 HRV、靜止心率同睡眠。
+                任何寫到 Apple Health 嘅裝置都用得，有啲數字淨係用手機都夠。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>如果 AI 認錯咗我餐飯點算？</summary>
+            <div class="faq-answer">
+              <p>
+                儲存之前你可以改。每個掃描結果都會先俾你確認，
+                所以認錯嘅代價係改一次，唔係成日嘅數據都錯。
+                你唔確認嘅話，佢唔會儲存。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>我啲健康數據私隱點？</summary>
+            <div class="faq-answer">
+              <p>
+                營養同健康數據留喺你部機同 Apple Health 入面。
+                餐相會送去食物識別服務認菜式；
+                唔會用嚟建立廣告檔案，亦都唔會賣。
+              </p>
+              <p>
+                詳細睇<a href="../privacy.html">私隱政策</a>。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>用邊啲裝置？</summary>
+            <div class="faq-answer">
+              <p>
+                iPhone，iOS 17.0 或以上。冇 Android 版本。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>邊個做 GainCut？</summary>
+            <div class="faq-answer">
+              <p>
+                IdeaFactory — 一間香港嘅父子檔產品工作室。
+                呢個 App 係有操練嘅人做俾有操練嘅人用。
+                支援電郵：<a href="mailto:support@ideafactory.one">support@ideafactory.one</a>，
+                或者睇<a href="../support.html">支援頁</a>。
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         9. 最後 CTA
+         ============================ -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="h2">唔好再估你厨房嗰邊。</h2>
+        <p class="lead">
+          每月三十次免費掃描。一餐一張相。
+          睇清楚你一直以嚟究竟食緊乜。
+        </p>
+        <a class="store-badge" href="https://apps.apple.com/hk/app/gaincut/id6785259813?utm_source=ideafactory&amp;utm_medium=referral&amp;utm_campaign=gaincut-page-footer&amp;utm_content=zh" target="_blank" rel="noopener" data-ga="appstore_download" data-ga-location="footer-zh">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.2 1.79-3.26 1.87-3.31-1.02-1.49-2.61-1.7-3.17-1.72-1.35-.14-2.63.79-3.32.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.59 1.1 8.75.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.83-1.22 1.17-2.4 1.19-2.46-.03-.01-2.29-.88-2.31-3.47zM14.88 6.03c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.04 1.68-.91 2.67.97.08 1.96-.49 2.55-1.22z"/></svg>
+          <span>App Store<small>喺 App Store 下載</small></span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year">2026</span> IdeaFactory. 保留所有權利。</p>
+      <ul class="footer-links" role="list">
+        <li><a href="/">IdeaFactory</a></li>
+        <li><a href="../privacy.html">私隱政策</a></li>
+        <li><a href="../support.html">支援</a></li>
+        <li class="lang-switch"><a href="../" data-ga="lang_switch" data-ga-location="footer-zh-to-en">English</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

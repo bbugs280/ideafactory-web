@@ -252,17 +252,55 @@ test.describe('GainCut product page', () => {
     // Catches the general shape of the bug above: an attribute that looks like
     // instrumentation but has no listener. If a new data-ga is added, this
     // fails until main.js is wired to it.
-    const unread = await page.evaluate(() => {
-      const els = Array.from(document.querySelectorAll('[data-ga]'));
-      const localHost = window.location.hostname;
-      return els
-        .filter((el) => {
-          const a = el as HTMLAnchorElement;
-          return a.hostname === localHost; // off-site CTAs are excluded below
-        })
-        .map((el) => (el as Element).getAttribute('data-ga'));
+    //
+    // ⚠️ 2026-11-15 — rewritten from attribute-inspection to BEHAVIOUR.
+    // The old version collected same-site [data-ga] elements and asserted the
+    // set was empty, which only passed because every data-ga at the time was
+    // an off-site App Store link. The moment a same-site one was added (the
+    // 中文 language switch, href="zh/"), it failed even though the listener WAS
+    // attached — verified by stubbing gtag and clicking. Presence of an
+    // attribute is not evidence of a missing listener, so the test now proves
+    // the listener by firing it.
+    const events = await page.evaluate(() => {
+      const fired: { name: string; params: Record<string, unknown> }[] = [];
+      (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = (
+        _cmd: unknown,
+        name: string,
+        params: Record<string, unknown>,
+      ) => {
+        fired.push({ name, params });
+      };
+
+      const targets = Array.from(
+        document.querySelectorAll('a[data-ga]'),
+      ) as HTMLAnchorElement[];
+      for (const a of targets) {
+        // Stop navigation but let the listener on the element run.
+        a.addEventListener('click', (ev) => ev.preventDefault(), { capture: false });
+        a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      }
+      return fired;
     });
-    expect(unread, 'data-ga present on a same-site element with no tracking').toHaveLength(0);
+
+    const names = events.map((e) => e.name);
+    expect(
+      names.length,
+      `expected one analytics event per data-ga element, got ${JSON.stringify(names)}`,
+    ).toBeGreaterThan(0);
+    expect(
+      names,
+      'every data-ga link must fire its own event on click',
+    ).not.toContain(undefined as unknown as string);
+
+    // Every element that declares data-ga must have produced its event.
+    const declared = await page.evaluate(() =>
+      Array.from(document.querySelectorAll('[data-ga]')).map((el) =>
+        el.getAttribute('data-ga'),
+      ),
+    );
+    for (const want of declared) {
+      expect(names, `data-ga="${want}" never fired — main.js is not wired to it`).toContain(want);
+    }
   });
 
   test('FAQ items open and expose their answer', async ({ page }) => {
